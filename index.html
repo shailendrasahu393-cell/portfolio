@@ -147,20 +147,7 @@ nav a:hover {
     color: white;
 }
 
-/* IMAGE */
-.portfolio_ {
-    width: 420px;
-    height: 520px;
-    overflow: hidden;
-    border-radius: 14px;
-}
-
-.portfolio_ img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-/* CIRCULAR PROFILE IMAGE WITH BACKGROUND */
+/* PROFILE IMAGE WITH RING + GLOW */
 .profile-wrapper {
     position: relative;
     width: 320px;
@@ -170,41 +157,60 @@ nav a:hover {
     justify-content: center;
 }
 
-.profile-bg {
+/* Glow behind */
+.profile-glow {
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 50%;
     background: radial-gradient(
-        circle at top,
+        circle,
         rgba(168, 85, 247, 0.45),
-        rgba(15, 23, 42, 0.9)
+        rgba(0, 0, 0, 0.9)
     );
-    filter: blur(18px);
+    filter: blur(35px);
+    z-index: 0;
 }
 
-.profile-img {
-    position: relative;
+/* Purple ring */
+.profile-ring {
     width: 260px;
     height: 260px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid rgba(168, 85, 247, 0.5);
+    border: 4px solid #a855f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1;
 }
 
-/* MOBILE ADJUSTMENT */
+/* Actual image */
+.profile-img {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+/* Mobile */
 @media (max-width: 900px) {
     .profile-wrapper {
         width: 220px;
         height: 220px;
     }
 
-    .profile-img {
+    .profile-ring {
         width: 180px;
         height: 180px;
     }
+
+    .profile-img {
+        width: 160px;
+        height: 160px;
+    }
 }
+
 
 
 /* SECTIONS */
@@ -398,9 +404,12 @@ h2 {
     </div>
 
     <div class="profile-wrapper">
-    <div class="profile-bg"></div>
-    <img src="./shailendraimage.png" alt="Shailendra">
+    <div class="profile-glow"></div>
+    <div class="profile-ring">
+        <img src="./shailendraimage.png" alt="Shailendra" class="profile-img">
+    </div>
 </div>
+    
 
 </section>
 
