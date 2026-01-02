@@ -75,8 +75,9 @@ nav a:hover {
 
 /* DEVELOPER — WHITE */
 .developer {
-    color: #ffffff;
+    color: var(--text-main);
 }
+
 
 /* ANIMATION */
 @keyframes softwareGlow {
@@ -356,6 +357,116 @@ h2 {
         margin-top: 40px;
     }
 }
+/* =========================
+   THEME VARIABLES
+========================= */
+:root {
+    --bg-main: radial-gradient(circle at top, #0b1220, #020617);
+    --bg-section: radial-gradient(circle at center, #020617, #000);
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --card-bg: #0f172a;
+    --border-color: #475569;
+}
+
+/* LIGHT MODE */
+body.light {
+    --bg-main: #f8fafc;
+    --bg-section: #f1f5f9;
+    --text-main: #020617;
+    --text-muted: #475569;
+    --card-bg: #ffffff;
+    --border-color: #cbd5e1;
+}
+
+/* APPLY VARIABLES */
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+section {
+    background: var(--bg-section);
+}
+
+.sub-role,
+.intro-text,
+.project-card p {
+    color: var(--text-muted);
+}
+
+.project-card,
+.video-card {
+    background: var(--card-bg);
+}
+
+/* THEME BUTTON */
+#themeToggle {
+    margin-left: 20px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#themeToggle:hover {
+    background: rgba(168, 85, 247, 0.15);
+}
+/* =========================
+   LIGHT MODE VISIBILITY FIX
+   (buttons & contact links)
+========================= */
+
+/* Secondary button */
+body.light .btn-secondary {
+    color: #020617;
+    border-color: #64748b;
+}
+
+/* Contact buttons */
+body.light .contact-links a {
+    color: #020617;
+    border-color: #64748b;
+}
+
+/* Hover state (keep your purple style) */
+body.light .contact-links a:hover {
+    color: white;
+}
+/* =========================
+   LIGHT MODE SKILLS FIX
+========================= */
+body.light .skills span {
+    background: rgba(124, 58, 237, 0.08);
+    border: 1px solid rgba(124, 58, 237, 0.35);
+    color: #020617;
+}
+/* =========================
+   LIGHT MODE VIDEO BORDER FIX
+========================= */
+body.light .video-card {
+    background: #ffffff;
+    border: 1px solid #1e293b; /* dark border */
+}
+/* =========================
+   LIGHT MODE NAVBAR FIX
+========================= */
+body.light nav a {
+    color: #1e293b;
+}
+
+body.light nav a:hover {
+    color: #7c3aed;
+}
+
+/* theme toggle button visibility */
+body.light #themeToggle {
+    color: #1
 </style>
 </head>
 
@@ -363,11 +474,15 @@ h2 {
 
 <header>
     <h2>Portfolio</h2>
+
     <nav>
         <a href="#">Home</a>
         <a href="#projects">Projects</a>
         <a href="#work">Videos</a>
         <a href="#contact">Contact</a>
+
+        <!-- THEME TOGGLE BUTTON -->
+        <button id="themeToggle" aria-label="Toggle theme">🌙</button>
     </nav>
 </header>
 
@@ -505,6 +620,9 @@ h2 {
 </section>
 
 <script>
+/* =========================
+   VIDEO LOGIC
+========================= */
 const videos = document.querySelectorAll(".video-card video");
 
 function stopOthers(current) {
@@ -545,6 +663,31 @@ videos.forEach(video => {
             card.classList.remove("active");
         }
     });
+});
+
+/* =========================
+   THEME TOGGLE LOGIC
+========================= */
+const toggleBtn = document.getElementById("themeToggle");
+const body = document.body;
+
+// Load saved theme
+if (localStorage.getItem("theme") === "light") {
+    body.classList.add("light");
+    toggleBtn.textContent = "☀️";
+}
+
+// Toggle theme
+toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("light");
+
+    if (body.classList.contains("light")) {
+        toggleBtn.textContent = "☀️";
+        localStorage.setItem("theme", "light");
+    } else {
+        toggleBtn.textContent = "🌙";
+        localStorage.setItem("theme", "dark");
+    }
 });
 </script>
 
