@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shailendra | Software Developer</title>
+
+<!-- Devicon Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: radial-gradient(circle at top, #0b1220, #020617);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #cbd5e1;
+}
+
+nav a:hover {
+    color: #a855f7;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px 60px;
+    min-height: 90vh;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+/* SOFTWARE — BLUE + ANIMATED */
+.software {
+    background: linear-gradient(90deg, #38bdf8, #2563eb, #38bdf8);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: softwareGlow 4s linear infinite;
+}
+
+/* DEVELOPER — WHITE */
+.developer {
+    color: #ffffff;
+}
+
+/* ANIMATION */
+@keyframes softwareGlow {
+    to {
+        background-position: 200% center;
+    }
+}
+
+
+
+.sub-role {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.hero-text p {
+    margin-top: 20px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.about-me {
+    margin-top: 18px;
+}
+
+/* SKILLS */
+.skills {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skills span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: 999px;
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    color: #e9d5ff;
+}
+
+/* BUTTONS */
+.buttons {
+    margin-top: 40px;
+}
+
+.buttons a {
+    display: inline-block;
+    padding: 14px 30px;
+    margin-right: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #a855f7;
+    color: white;
+}
+
+.btn-secondary {
+    border: 1px solid #475569;
+    color: white;
+}
+
+/* IMAGE */
+.portfolio_ {
+    width: 420px;
+    height: 520px;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.portfolio_ img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* CIRCULAR PROFILE IMAGE WITH BACKGROUND */
+.profile-wrapper {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at top,
+        rgba(168, 85, 247, 0.45),
+        rgba(15, 23, 42, 0.9)
+    );
+    filter: blur(18px);
+}
+
+.profile-img {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(168, 85, 247, 0.5);
+    z-index: 1;
+}
+
+/* MOBILE ADJUSTMENT */
+@media (max-width: 900px) {
+    .profile-wrapper {
+        width: 220px;
+        height: 220px;
+    }
+
+    .profile-img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+
+/* SECTIONS */
+section {
+    padding: 100px 60px;
+    background: radial-gradient(circle at center, #020617, #000);
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* CORE PROJECTS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #0f172a;
+    padding: 30px;
+    border-radius: 20px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(168,85,247,0.25);
+}
+
+.project-card h3 {
+    margin-bottom: 12px;
+    color: #a855f7;
+}
+
+.project-card p {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* VIDEO SECTION (UNCHANGED + FIXED) */
+.video-row {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    padding-bottom: 50px;
+    scroll-snap-type: x mandatory;
+}
+
+.video-card {
+    scroll-snap-align: center;
+    min-width: 300px;
+    background: #0f172a;
+    border-radius: 26px;
+    padding: 18px;
+    transition: all 0.4s ease;
+}
+
+.video-card.active {
+    transform: scale(1.12);
+    box-shadow: 0 25px 80px rgba(168,85,247,0.35);
+}
+
+/* 🔧 FIX ONLY */
+.video-frame {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.video-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.video-card h4 {
+    margin-top: 12px;
+    text-align: center;
+}
+
+/* WATCH MORE */
+.watch-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.watch-more a {
+    padding: 14px 36px;
+    background: #a855f7;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* CONTACT */
+#contact {
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-links a {
+    padding: 14px 32px;
+    border-radius: 10px;
+    border: 1px solid #475569;
+    color: white;
+    text-decoration: none;
+}
+
+.contact-links a:hover {
+    background: #a855f7;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .portfolio_ {
+        width: 280px;
+        height: 360px;
+        margin-top: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Portfolio</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#work">Videos</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1><span class="software">Software</span> <span class="developer">Developer</span></h1>
+        <div class="sub-role">Video Editor</div>
+
+        <p>Building smooth UI, interactive experiences, and cinematic visuals.</p>
+
+        <p class="about-me">
+    I’m a software developer who blends engineering precision with creative
+    problem-solving to build fast, modern digital experiences.
+    <br><br>
+    <strong>Cinematographer🎥 and Editor🎬- </strong>
+   I transmute raw frames into cinematic alchemy
+    ✨—capturing the vision through the lens 📸 and crafting the magic on the timeline 🎞️.
+</p>
+
+        <div class="skills">
+            <span><i class="devicon-html5-plain"></i> HTML</span>
+            <span><i class="devicon-css3-plain"></i> CSS</span>
+            <span><i class="devicon-javascript-plain"></i> JavaScript</span>
+            <span><i class="devicon-git-plain"></i> Git</span>
+            <span><i class="devicon-github-original"></i> GitHub</span>
+            <span><i class="devicon-c-plain"></i> C</span>
+            <span><i class="devicon-python-plain"></i> Python</span>
+            <span><i class="devicon-cplusplus-plain"></i> C++</span>
+            <span>🎬 Video Editing</span>
+
+        </div>
+
+        <div class="buttons">
+            <a href="#projects" class="btn-primary">Core Projects</a>
+            <a href="#contact" class="btn-secondary">Get In Touch</a>
+        </div>
+    </div>
+
+    <div class="profile-wrapper">
+    <div class="profile-bg"></div>
+    <img src="./shailendraimage.png" alt="Shailendra">
+</div>
+
+</section>
+
+<section id="projects">
+    <h2>Core Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Developer Portfolio</h3>
+            <p>Responsive portfolio with smooth animations.</p>
+        </div>
+        <div class="project-card">
+            <h3>Video Slider System</h3>
+            <p>Custom hover-play slider with single-video logic.</p>
+        </div>
+        <div class="project-card">
+            <h3>UI Animation Engine</h3>
+            <p>Scroll-based reveal and performance-optimized UI.</p>
+        </div>
+    </div>
+</section>
+
+<section id="work">
+    <h2></h2>
+
+    <div class="video-row">
+
+        <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="none">
+                    <source src="./videos/project1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Cinematic reel Edit</h4>
+        </div>
+
+        <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="none">
+                    <source src="./videos/project2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Intro Edit</h4>
+        </div>
+
+        <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="none">
+                    <source src="./videos/project3.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Short Film Scene</h4>
+        </div>
+
+        <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="none">
+                    <source src="./videos/project10.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Short Film Scene</h4>
+        </div>
+
+    </div>
+
+    <div class="watch-more">
+        <a href="https://drive.google.com/drive/folders/1KzB-Ne_WqdE_3s008PaUwff8CZRjs4--" target="_blank">
+            Watch More
+        </a>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-links">
+        <a href="https://wa.me/919140742377">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/shailendrasahu-">LinkedIn</a>
+        <a href="mailto:shailendrasahu393@gmail.com">Email</a>
+        <a href="https://www.instagram.com/shabhhh_">Instagram</a>
+        <a href="https://github.com/shailendrasahu393-cell">GitHub</a>
+
+    </div>
+</section>
+
+<script>
+const videos = document.querySelectorAll(".video-card video");
+
+function stopOthers(current) {
+    videos.forEach(v => {
+        if (v !== current) {
+            v.pause();
+            v.currentTime = 0;
+            v.muted = true;
+            v.closest(".video-card").classList.remove("active");
+        }
+    });
+}
+
+videos.forEach(video => {
+    const card = video.closest(".video-card");
+
+    video.addEventListener("mouseenter", () => {
+        stopOthers(video);
+        video.muted = true;
+        video.play();
+        card.classList.add("active");
+    });
+
+    video.addEventListener("mouseleave", () => {
+        video.pause();
+        video.currentTime = 0;
+        card.classList.remove("active");
+    });
+
+    video.addEventListener("click", () => {
+        if (video.paused) {
+            stopOthers(video);
+            video.muted = false;
+            video.play();
+            card.classList.add("active");
+        } else {
+            video.pause();
+            card.classList.remove("active");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
