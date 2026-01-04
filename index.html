@@ -7,6 +7,10 @@
 
 <!-- Devicon Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 
 <style>
 * {
@@ -297,14 +301,14 @@ h2 {
 }
 
 .video-card h4 {
-    margin-top: 12px;
+    margin-top: 10px;
     text-align: center;
 }
 
 /* WATCH MORE */
 .watch-more {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 120px;
 }
 
 .watch-more a {
@@ -596,6 +600,204 @@ img, video {
     height: auto;
     display: block;
 }
+/* =========================
+   3D VIDEO SLIDER (SCOPED)
+========================= */
+
+#work .scene {
+  width: 100%;
+  height: 80vh;
+  perspective: 1400px;
+  overflow: hidden;
+}
+
+#work .carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+#work .card {
+  position: absolute;
+  width: 360px;
+  aspect-ratio: 16 / 9;
+  top: 45%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(.2,.8,.2,1), opacity 0.6s;
+}
+
+#work .video-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#work video.main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 40px 90px rgba(0,0,0,.8);
+}
+
+#work video.reflect {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(-1);
+  opacity: .35;
+  filter: blur(8px);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.6), transparent);
+}
+
+#work .play-btn {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: rgba(146, 147, 226, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#work .track-info {
+  position: absolute;
+  bottom: -130px;
+  width: 100%;
+  text-align: center;
+}
+
+#work .track-info h3 {
+  font-size: 15px;
+}
+
+#work .track-info p {
+  font-size: 13px;
+  opacity: .6;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  #work .card {
+    width: 280px;
+  }
+}
+/* =========================
+   CONTACT LOGO STYLE
+========================= */
+
+.contact-links.logo-style {
+  gap: 26px;
+}
+
+.contact-links.logo-style a {
+  width: 58px;
+  height: 58px;
+
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 26px;
+  color: var(--text-main);
+  text-decoration: none;
+
+  background: transparent;
+  transition: 
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Icon hover */
+.contact-links.logo-style a:hover {
+  transform: translateY(-6px);
+  background: rgba(168, 85, 247, 0.15);
+  box-shadow: 0 18px 40px rgba(168, 85, 247, 0.35);
+}
+
+/* Icon color fix */
+.contact-links.logo-style i {
+  font-size: 28px;
+}
+
+/* Mobile size */
+@media (max-width: 768px) {
+  .contact-links.logo-style a {
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+  }
+}
+/* =========================
+   CIRCULAR CONTACT ICONS
+========================= */
+
+.contact-links.circle-icons {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  margin-top: 30px;
+}
+
+/* Circle button */
+.contact-links.circle-icons a {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  text-decoration: none;
+
+  font-size: 22px;
+  background: transparent;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Hover animation */
+.contact-links.circle-icons a:hover {
+  transform: translateY(-6px) scale(1.08);
+  background: rgba(168, 85, 247, 0.15);
+  box-shadow: 0 16px 40px rgba(168, 85, 247, 0.4);
+}
+
+/* Icon alignment fix */
+.contact-links.circle-icons i {
+  line-height: 1;
+}
+
+/* LIGHT MODE FIX */
+body.light .contact-links.circle-icons a {
+  background: #ffffff;
+  color: #020617;
+}
+.contact-links.circle-icons a:hover .fa-whatsapp { color: #25D366; }
+.contact-links.circle-icons a:hover .fa-linkedin-in { color: #0A66C2; }
+.contact-links.circle-icons a:hover .fa-instagram { color: #E4405F; }
+.contact-links.circle-icons a:hover .fa-github { color: #ffffff; }
+.contact-links.circle-icons a:hover .fa-envelope { color: #7C3AED; }
 </style>
 </head>
 
@@ -664,7 +866,7 @@ img, video {
         <img src="./shailendraimage.png" alt="Shailendra" class="profile-img">
     </div>
 </div>
-    
+
 
 </section>
 
@@ -688,47 +890,9 @@ img, video {
 
 <section id="work">
     <h2>Editing Projects</h2>
-
-    <div class="video-row">
-
-        <div class="video-card">
-            <div class="video-frame">
-                <video muted loop playsinline preload="metadata">
-                    <source src="./project1.mp4" type="video/mp4">
-                </video>
-            </div>
-            <h4>Cinematic reel Edit</h4>
-        </div>
-
-        <div class="video-card">
-            <div class="video-frame">
-                <video muted loop playsinline preload="metadata">
-                    <source src="./project2.mp4" type="video/mp4">
-                </video>
-            </div>
-            <h4>Intro Edit</h4>
-        </div>
-
-        <div class="video-card">
-            <div class="video-frame">
-                <video muted loop playsinline preload="metadata">
-                    <source src="./project3.mp4" type="video/mp4">
-                </video>
-            </div>
-            <h4>Short Film Scene</h4>
-        </div>
-
-        <div class="video-card">
-            <div class="video-frame">
-                <video muted loop playsinline preload="metadata">
-                    <source src="./project10.mp4" type="video/mp4">
-                </video>
-            </div>
-            <h4>Short Film Scene</h4>
-        </div>
-
-    </div>
-
+    <div class="scene">
+  <div class="carousel"></div>
+</div>
     <div class="watch-more">
         <a href="https://drive.google.com/drive/folders/1KzB-Ne_WqdE_3s008PaUwff8CZRjs4--" target="_blank">
             Watch More
@@ -738,60 +902,246 @@ img, video {
 
 <section id="contact">
     <h2>Get In Touch</h2>
-    <div class="contact-links">
-        <a href="https://wa.me/919140742377">WhatsApp</a>
-        <a href="https://www.linkedin.com/in/shailendrasahu-">LinkedIn</a>
-        <a href="mailto:shailendrasahu393@gmail.com">Email</a>
-        <a href="https://www.instagram.com/shabhhh_">Instagram</a>
-        <a href="https://github.com/shailendrasahu393-cell">GitHub</a>
+    <div class="contact-links circle-icons">
 
-    </div>
+  <a href="https://wa.me/919140742377" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a href="https://www.linkedin.com/in/shailendrasahu-" aria-label="LinkedIn">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+
+  <a href="mailto:shailendrasahu393@gmail.com" aria-label="Email">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+
+  <a href="https://www.instagram.com/shabhhh_" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://github.com/shailendrasahu393-cell" aria-label="GitHub">
+    <i class="fa-brands fa-github"></i>
+  </a>
+
+</div>
 </section>
 
 <script>
 /* =========================
-   VIDEO LOGIC
+   NORMAL VIDEO CARD LOGIC
+   (safe if video-card exists)
 ========================= */
-const videos = document.querySelectorAll(".video-card video");
+const gridVideos = document.querySelectorAll(".video-card video");
 
-function stopOthers(current) {
-    videos.forEach(v => {
+function stopGridVideos(current) {
+    gridVideos.forEach(v => {
         if (v !== current) {
             v.pause();
             v.currentTime = 0;
             v.muted = true;
-            v.closest(".video-card").classList.remove("active");
+            v.closest(".video-card")?.classList.remove("active");
         }
     });
 }
 
-videos.forEach(video => {
+gridVideos.forEach(video => {
     const card = video.closest(".video-card");
 
     video.addEventListener("mouseenter", () => {
-        stopOthers(video);
+        stopGridVideos(video);
         video.muted = true;
         video.play();
-        card.classList.add("active");
+        card?.classList.add("active");
     });
 
     video.addEventListener("mouseleave", () => {
         video.pause();
         video.currentTime = 0;
-        card.classList.remove("active");
+        card?.classList.remove("active");
     });
 
     video.addEventListener("click", () => {
         if (video.paused) {
-            stopOthers(video);
+            stopGridVideos(video);
             video.muted = false;
             video.play();
-            card.classList.add("active");
+            card?.classList.add("active");
         } else {
             video.pause();
-            card.classList.remove("active");
+            card?.classList.remove("active");
         }
     });
+});
+
+/* =========================
+   3D SLIDER DATA
+========================= */
+const sliderVideos = [
+  ["./project1.mp4", "Cinematic Reel", "Editing"],
+  ["./project2.mp4", "Intro Edit", "Motion"],
+  ["./project3.mp4", "Short Film", "Cinematography"],
+  ["./project10.mp4", "Scene Cut", "Film"],
+  ["./project4.mp4", "Just Raw Clips", "Cinematography"],
+  ["./project5.mp4", "My self", "Transition"],
+  ["./project6.mp4", "Showing Emotions", "Cinematography"]
+
+
+];
+
+const carousel = document.querySelector("#work .carousel");
+
+/* CREATE SLIDES */
+if (carousel) {
+  sliderVideos.forEach(v => {
+    carousel.innerHTML += `
+      <div class="card">
+        <div class="video-wrap">
+          <video class="main" src="${v[0]}" loop muted playsinline preload="metadata"></video>
+          <video class="reflect" src="${v[0]}" loop muted playsinline preload="metadata"></video>
+        </div>
+        <div class="play-btn">▶</div>
+        <div class="track-info">
+          <h3>${v[1]}</h3>
+          <p>${v[2]}</p>
+        </div>
+      </div>
+    `;
+  });
+}
+
+const cards = document.querySelectorAll("#work .card");
+let active = Math.floor(cards.length / 2);
+
+/* =========================
+   SLIDER CORE FUNCTIONS
+========================= */
+function stopSliderVideos() {
+  cards.forEach(card => {
+    const m = card.querySelector(".main");
+    const r = card.querySelector(".reflect");
+    const b = card.querySelector(".play-btn");
+    m.pause();
+    r.pause();
+    m.muted = true;
+    b.textContent = "▶";
+  });
+}
+
+function renderSlider() {
+  const spacing = window.innerWidth < 768 ? 280 : 380;
+  const depth = window.innerWidth < 768 ? 200 : 280;
+
+  cards.forEach((card, i) => {
+    const offset = i - active;
+    const abs = Math.abs(offset);
+
+    card.style.transform = `
+      translate(-50%, -50%)
+      translateX(${offset * spacing}px)
+      translateZ(${abs === 0 ? depth : -abs * 260}px)
+      rotateY(${offset * -28}deg)
+      scale(${abs === 0 ? 1.18 : 0.85})
+    `;
+    card.style.opacity = abs > 3 ? 0 : 1;
+  });
+}
+
+/* =========================
+   SMOOTH SLIDE ANIMATION
+========================= */
+function animateToIndex(target) {
+  const start = active;
+  const duration = 420;
+  const startTime = performance.now();
+
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function animate(time) {
+    const progress = Math.min((time - startTime) / duration, 1);
+    active = start + (target - start) * easeOutCubic(progress);
+    renderSlider();
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      active = target;
+      renderSlider();
+      stopSliderVideos();
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+renderSlider();
+
+/* =========================
+   PLAY BUTTON (ONLY CENTER)
+========================= */
+cards.forEach((card, i) => {
+  const main = card.querySelector(".main");
+  const reflect = card.querySelector(".reflect");
+  const btn = card.querySelector(".play-btn");
+
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    if (Math.round(active) !== i) return;
+
+    if (main.paused) {
+      stopSliderVideos();
+      main.muted = false;
+      main.play();
+      reflect.play();
+      btn.textContent = "❚❚";
+    } else {
+      main.pause();
+      reflect.pause();
+      btn.textContent = "▶";
+    }
+  });
+});
+
+/* =========================
+   DRAG & SWIPE (SMOOTH)
+========================= */
+let startX = 0;
+let isDragging = false;
+
+function handleSwipe(diff) {
+  if (Math.abs(diff) < 50) return;
+
+  let target = Math.round(active);
+  if (diff > 0) target = Math.max(0, target - 1);
+  if (diff < 0) target = Math.min(cards.length - 1, target + 1);
+
+  animateToIndex(target);
+}
+
+/* DESKTOP */
+document.addEventListener("mousedown", e => {
+  startX = e.clientX;
+  isDragging = true;
+});
+
+document.addEventListener("mouseup", e => {
+  if (!isDragging) return;
+  handleSwipe(e.clientX - startX);
+  isDragging = false;
+});
+
+/* MOBILE */
+document.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+});
+
+document.addEventListener("touchend", e => {
+  if (!isDragging) return;
+  handleSwipe(e.changedTouches[0].clientX - startX);
+  isDragging = false;
 });
 
 /* =========================
@@ -800,23 +1150,16 @@ videos.forEach(video => {
 const toggleBtn = document.getElementById("themeToggle");
 const body = document.body;
 
-// Load saved theme
 if (localStorage.getItem("theme") === "light") {
-    body.classList.add("light");
-    toggleBtn.textContent = "☀️";
+  body.classList.add("light");
+  toggleBtn.textContent = "☀️";
 }
 
-// Toggle theme
 toggleBtn.addEventListener("click", () => {
-    body.classList.toggle("light");
-
-    if (body.classList.contains("light")) {
-        toggleBtn.textContent = "☀️";
-        localStorage.setItem("theme", "light");
-    } else {
-        toggleBtn.textContent = "🌙";
-        localStorage.setItem("theme", "dark");
-    }
+  body.classList.toggle("light");
+  const isLight = body.classList.contains("light");
+  toggleBtn.textContent = isLight ? "☀️" : "🌙";
+  localStorage.setItem("theme", isLight ? "light" : "dark");
 });
 </script>
 
