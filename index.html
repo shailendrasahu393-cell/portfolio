@@ -1412,15 +1412,6 @@ videos.forEach(video => {
     });
 
     card.classList.add("active");
-
-    /* Mobile fullscreen */
-    if (isMobile) {
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.webkitEnterFullscreen) {
-        video.webkitEnterFullscreen();
-      }
-    }
   });
 });
 
