@@ -267,7 +267,9 @@ h2 {
     gap: 40px;
     overflow-x: auto;
     padding-bottom: 50px;
-    scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
 }
 
 .video-card {
@@ -716,11 +718,6 @@ body.light .contact-links.circle-icons a {
 .video-card.active .video-frame::after {
   opacity: 0;
 }
-
-  .video-card.active .video-frame::after {
-    opacity: 0;
-  }
-}
 /* =========================
    MOBILE SKILLS GRID
 ========================= */
@@ -1157,9 +1154,12 @@ body.light .premium-icons a {
 }
 
 /* Active = currently playing (mobile + desktop) */
-.video-card.active {
-  transform: scale(1.08);
-  box-shadow: 0 22px 70px rgba(168,85,247,0.45);
+.video-card.active .video-frame {
+  transform: scale(1.05);
+}
+
+.video-frame {
+  transition: transform 0.35s ease;
 }
 
 /* Slight dim for non-playing videos */
@@ -1168,6 +1168,54 @@ body.light .premium-icons a {
   transition: opacity 0.3s ease;
 }
 
+.video-card.active video {
+  opacity: 1;
+}
+.video-frame {
+  transition: transform 0.35s ease;
+}
+
+.video-card.active .video-frame {
+  transform: scale(1.05);
+}
+
+@media (hover: hover) {
+  .video-card:hover .video-frame {
+    transform: scale(1.03);
+  }
+}
+}
+/* =========================
+   HOVER EFFECT ON PLAYING VIDEO
+========================= */
+
+/* Smooth base */
+.video-frame {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* ACTIVE = playing (desktop + mobile) */
+.video-card.active .video-frame {
+  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(168,85,247,0.45);
+}
+
+/* DESKTOP ONLY: hover boost when playing */
+@media (hover: hover) {
+  .video-card.active:hover .video-frame {
+    transform: scale(1.08);
+    box-shadow: 0 26px 75px rgba(168,85,247,0.6);
+  }
+}
+
+/* NON-ACTIVE videos stay calm */
+.video-card:not(.active) .video-frame {
+  transform: scale(1);
+  box-shadow: none;
+  opacity: 0.85;
+}
+
+/* Playing video stays visually dominant */
 .video-card.active video {
   opacity: 1;
 }
