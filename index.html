@@ -267,7 +267,7 @@ h2 {
     gap: 40px;
     overflow-x: auto;
     padding-bottom: 50px;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
 }
 
 .video-card {
@@ -280,8 +280,7 @@ h2 {
 }
 
 .video-card.active {
-    transform: scale(1.12);
-    box-shadow: 0 25px 80px rgba(168,85,247,0.35);
+  box-shadow: 0 30px 80px rgba(168,85,247,0.45);
 }
 
 /* 🔧 FIX ONLY */
@@ -1138,6 +1137,40 @@ body.light .premium-icons a {
     padding: 7px 14px;
   }
 }
+.video-frame {
+  aspect-ratio: 16 / 9;
+}
+/* =========================
+   VIDEO HOVER + ACTIVE FX
+========================= */
+
+.video-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Hover (desktop only) */
+@media (hover: hover) {
+  .video-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 18px 50px rgba(168,85,247,0.35);
+  }
+}
+
+/* Active = currently playing (mobile + desktop) */
+.video-card.active {
+  transform: scale(1.08);
+  box-shadow: 0 22px 70px rgba(168,85,247,0.45);
+}
+
+/* Slight dim for non-playing videos */
+.video-card:not(.active) video {
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.video-card.active video {
+  opacity: 1;
+}
 </style>
 </head>
 
@@ -1375,65 +1408,51 @@ body.light .premium-icons a {
 
 <script>
 /* =========================
-   VIDEO — STABLE MOBILE + DESKTOP
+   SINGLE VIDEO PLAY LOGIC
 ========================= */
 
 const videos = document.querySelectorAll(".video-card video");
-const isMobile = window.matchMedia("(hover: none)").matches;
 
+/* Stop all other videos */
 function stopOthers(current) {
-  videos.forEach(v => {
-    if (v !== current) {
-      v.pause();
-      v.currentTime = 0;
-      v.muted = true;
-      v.controls = false;
-      v.closest(".video-card").classList.remove("active");
+  videos.forEach(video => {
+    if (video !== current) {
+      video.pause();
+      video.currentTime = 0;
+      video.muted = true;
+      video.controls = false;
+      video.closest(".video-card").classList.remove("active");
     }
   });
 }
 
+/* Click / Tap to play */
 videos.forEach(video => {
   const card = video.closest(".video-card");
 
-  video.addEventListener("pointerdown", (e) => {
-    e.preventDefault();
+  video.addEventListener("click", (e) => {
     e.stopPropagation();
 
+    /* If already playing → ignore */
     if (!video.paused) return;
 
     stopOthers(video);
 
-    video.muted = false;
-    video.controls = true;
-
-    video.play().catch(err => {
-      console.warn("Playback blocked:", err);
-    });
+    video.muted = false;     // 🔊 auto unmute
+    video.controls = true;  // user controls
+    video.play().catch(() => {});
 
     card.classList.add("active");
-
-    /* Mobile fullscreen */
-    if (isMobile) {
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.webkitEnterFullscreen) {
-        video.webkitEnterFullscreen();
-      }
-    }
   });
 });
 
-/* Exit fullscreen → reset */
-document.addEventListener("fullscreenchange", () => {
-  if (!document.fullscreenElement) {
-    videos.forEach(v => {
-      v.pause();
-      v.muted = true;
-      v.controls = false;
-      v.closest(".video-card").classList.remove("active");
-    });
-  }
+/* Pause & reset when video ends */
+videos.forEach(video => {
+  video.addEventListener("ended", () => {
+    video.muted = true;
+    video.controls = false;
+    video.closest(".video-card").classList.remove("active");
+  });
 });
   /* =========================
    MOBILE MENU TOGGLE — FIX
