@@ -2,265 +2,821 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>3D Video Slider – Pro Music UI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shailendra | Software Developer</title>
+
+<!-- Devicon Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  margin: 0;
-  height: 100vh;
-  background: radial-gradient(circle at center, #111, #000);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-  color: #fff;
+    background: radial-gradient(circle at top, #0b1220, #020617);
+    color: white;
+    overflow-x: hidden;
 }
 
-/* SCENE */
-.scene {
-  width: 100%;
-  height: 100vh;
-  perspective: 1400px;
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
 }
 
-/* CAROUSEL */
-.carousel {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #cbd5e1;
 }
 
-/* CARD */
-.card {
-  position: absolute;
-  width: 360px;
-  aspect-ratio: 16 / 9; /* Fixed 16:9 for all screens */
-  top: 45%;
-  left: 50%;
-  transform-style: preserve-3d;
-  transition: transform 0.9s cubic-bezier(.2,.8,.2,1), opacity 0.6s;
+nav a:hover {
+    color: #a855f7;
 }
 
-/* VIDEO WRAP */
-.video-wrap {
-  position: relative;
-  width: 100%;
-  height: 100%;
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px 60px;
+    min-height: 90vh;
 }
 
-/* MAIN VIDEO */
-video.main {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 40px 90px rgba(0,0,0,.8);
+.hero-text {
+    max-width: 50%;
 }
 
-/* REFLECTION VIDEO */
-video.reflect {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scaleY(-1);
-  opacity: .35;
-  filter: blur(8px);
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,.6), transparent);
+.hero-text h1 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
-/* PLAY BUTTON – PROFESSIONAL */
-.play-btn {
-  position: absolute;
-  bottom: -72px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.95);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: #000;
-  cursor: pointer;
-  box-shadow: 0 25px 60px rgba(0,0,0,.6);
-  transition: transform .25s ease;
+/* SOFTWARE — BLUE + ANIMATED */
+.software {
+    background: linear-gradient(90deg, #38bdf8, #2563eb, #38bdf8);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: softwareGlow 4s linear infinite;
 }
 
-.play-btn:hover {
-  transform: translateX(-50%) scale(1.08);
+/* DEVELOPER — WHITE */
+.developer {
+    color: var(--text-main);
 }
 
-/* TITLE */
-.track-info {
-  position: absolute;
-  bottom: -140px;
-  width: 100%;
-  text-align: center;
+
+/* ANIMATION */
+@keyframes softwareGlow {
+    to {
+        background-position: 200% center;
+    }
 }
 
-.track-info h3 {
-  margin: 6px 0 2px;
-  font-size: 16px;
-  font-weight: 600;
+
+
+.sub-role {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #94a3b8;
 }
 
-.track-info p {
-  margin: 0;
-  font-size: 13px;
-  opacity: .6;
+.intro-text {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 10px;
 }
 
-/* MOBILE OPTIMIZATION */
+
+.about-me {
+    margin-top: 18px;
+}
+
+/* SKILLS */
+.skills {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skills span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: 999px;
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    color: #e9d5ff;
+}
+
+/* BUTTONS */
+.buttons {
+    margin-top: 40px;
+}
+
+.buttons a {
+    display: inline-block;
+    padding: 14px 30px;
+    margin-right: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #a855f7;
+    color: white;
+}
+
+.btn-secondary {
+    border: 1px solid #475569;
+    color: white;
+}
+
+/* PROFILE IMAGE WITH RING + GLOW */
+.profile-wrapper {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Glow behind */
+.profile-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(168, 85, 247, 0.45),
+        rgba(0, 0, 0, 0.9)
+    );
+    filter: blur(35px);
+    z-index: 0;
+}
+
+/* Purple ring */
+.profile-ring {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 4px solid #a855f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* Actual image */
+.profile-img {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .profile-wrapper {
+        width: 220px;
+        height: 220px;
+    }
+
+    .profile-ring {
+        width: 180px;
+        height: 180px;
+    }
+
+    .profile-img {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+
+
+/* SECTIONS */
+section {
+    padding: 100px 60px;
+    background: radial-gradient(circle at center, #020617, #000);
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* CORE PROJECTS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #0f172a;
+    padding: 30px;
+    border-radius: 20px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(168,85,247,0.25);
+}
+
+.project-card h3 {
+    margin-bottom: 12px;
+    color: #a855f7;
+}
+
+.project-card p {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* VIDEO SECTION (UNCHANGED + FIXED) */
+.video-row {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    padding-bottom: 50px;
+    scroll-snap-type: x mandatory;
+}
+
+.video-card {
+    scroll-snap-align: center;
+    min-width: 300px;
+    background: #0f172a;
+    border-radius: 26px;
+    padding: 18px;
+    transition: all 0.4s ease;
+}
+
+.video-card.active {
+    transform: scale(1.12);
+    box-shadow: 0 25px 80px rgba(168,85,247,0.35);
+}
+
+/* 🔧 FIX ONLY */
+.video-frame {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.video-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.video-card h4 {
+    margin-top: 12px;
+    text-align: center;
+}
+
+/* WATCH MORE */
+.watch-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.watch-more a {
+    padding: 14px 36px;
+    background: #a855f7;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* CONTACT */
+#contact {
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-links a {
+    padding: 14px 32px;
+    border-radius: 10px;
+    border: 1px solid #475569;
+    color: white;
+    text-decoration: none;
+}
+
+.contact-links a:hover {
+    background: #a855f7;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .portfolio_ {
+        width: 280px;
+        height: 360px;
+        margin-top: 40px;
+    }
+}
+/* =========================
+   THEME VARIABLES
+========================= */
+:root {
+    --bg-main: radial-gradient(circle at top, #0b1220, #020617);
+    --bg-section: radial-gradient(circle at center, #020617, #000);
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --card-bg: #0f172a;
+    --border-color: #475569;
+}
+
+/* LIGHT MODE */
+body.light {
+    --bg-main: #f8fafc;
+    --bg-section: #f1f5f9;
+    --text-main: #020617;
+    --text-muted: #475569;
+    --card-bg: #ffffff;
+    --border-color: #cbd5e1;
+}
+
+/* APPLY VARIABLES */
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+section {
+    background: var(--bg-section);
+}
+
+.sub-role,
+.intro-text,
+.project-card p {
+    color: var(--text-muted);
+}
+
+.project-card,
+.video-card {
+    background: var(--card-bg);
+}
+
+/* THEME BUTTON */
+#themeToggle {
+    margin-left: 20px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#themeToggle:hover {
+    background: rgba(168, 85, 247, 0.15);
+}
+/* =========================
+   LIGHT MODE VISIBILITY FIX
+   (buttons & contact links)
+========================= */
+
+/* Secondary button */
+body.light .btn-secondary {
+    color: #020617;
+    border-color: #64748b;
+}
+
+/* Contact buttons */
+body.light .contact-links a {
+    color: #020617;
+    border-color: #64748b;
+}
+
+/* Hover state (keep your purple style) */
+body.light .contact-links a:hover {
+    color: white;
+}
+/* =========================
+   LIGHT MODE SKILLS FIX
+========================= */
+body.light .skills span {
+    background: rgba(124, 58, 237, 0.08);
+    border: 1px solid rgba(124, 58, 237, 0.35);
+    color: #020617;
+}
+/* =========================
+   LIGHT MODE VIDEO BORDER FIX
+========================= */
+body.light .video-card {
+    background: #ffffff;
+    border: 1px solid #1e293b; /* dark border */
+}
+/* =========================
+   LIGHT MODE NAVBAR FIX
+========================= */
+body.light nav a {
+    color: #1e293b;
+}
+
+body.light nav a:hover {
+    color: #7c3aed;
+}
+
+/* theme toggle button visibility */
+body.light #themeToggle {
+    color: #1e293b;
+}
+/* =========================
+   ADVANCED MOBILE OPTIMIZATION
+========================= */
+
 @media (max-width: 768px) {
-  .card {
-    width: 280px; /* 16:9 ratio for mobile */
-    aspect-ratio: 16 / 9;
-  }
 
-  .play-btn {
-    bottom: -60px;
-    width: 60px;
-    height: 60px;
-    font-size: 20px;
-  }
+    /* HEADER */
+    header {
+        padding: 15px 18px;
+    }
 
-  .track-info {
-    bottom: -110px;
-  }
+    header h2 {
+        font-size: 18px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    #themeToggle {
+        margin-left: 0;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 40px 18px;
+        min-height: auto;
+        gap: 30px;
+    }
+
+    .intro-text {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+        line-height: 1.15;
+    }
+
+    .sub-role {
+        font-size: 14px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    /* PROFILE IMAGE */
+    .profile-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-ring {
+        width: 160px;
+        height: 160px;
+    }
+
+    .profile-img {
+        width: 140px;
+        height: 140px;
+    }
+}
+@media (max-width: 768px) {
+    .skills {
+        justify-content: center;
+    }
+
+    .skills span {
+        font-size: 12px;
+        padding: 7px 14px;
+    }
+}
+@media (max-width: 768px) {
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        align-items: center;
+    }
+
+    .buttons a {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        margin-right: 0;
+    }
+}
+@media (max-width: 768px) {
+    .video-row {
+        gap: 20px;
+        padding-bottom: 30px;
+    }
+
+    .video-card {
+        min-width: 260px;
+    }
+
+    .video-frame {
+        height: 160px;
+    }
+}
+@media (max-width: 768px) {
+    .contact-links {
+        gap: 14px;
+    }
+
+    .contact-links a {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+}
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 </style>
 </head>
 
 <body>
 
-<div class="scene">
-  <div class="carousel">
+<header>
+    <h2>Portfolio</h2>
 
-    <!-- 7 CARDS -->
-    <script>
-      const videos = [
-        ["mov_bbb.mp4", "Blinding Lights", "The Weeknd"],
-        ["movie.mp4", "Save Your Tears", "The Weeknd"],
-        ["mov_bbb.mp4", "Starboy", "The Weeknd"],
-        ["movie.mp4", "Die For You", "The Weeknd"],
-        ["mov_bbb.mp4", "Take My Breath", "The Weeknd"],
-        ["movie.mp4", "I Feel It Coming", "The Weeknd"],
-        ["mov_bbb.mp4", "After Hours", "The Weeknd"]
-      ];
-    </script>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#work">Videos</a>
+        <a href="#contact">Contact</a>
 
-  </div>
+        <!-- THEME TOGGLE BUTTON -->
+        <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+    </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+
+    <!-- ADD THIS -->
+    <div class="intro-text">Hi, I'm Shailendra</div>
+
+    <h1>
+      <span class="software">Software</span>
+      <span class="developer">Developer</span>
+    </h1>
+
+    <div class="sub-role">Video Editor</div>
+
+        <p>Building smooth UI, interactive experiences, and cinematic visuals.</p>
+
+        <p class="about-me">
+    I’m a software developer who blends engineering precision with creative
+    problem-solving to build fast, modern digital experiences.
+    <br><br>
+    <strong>Cinematographer🎥 and Editor🎬- </strong>
+   I transmute raw frames into cinematic alchemy
+    ✨—capturing the vision through the lens 📸 and crafting the magic on the timeline 🎞️.
+</p>
+
+        <div class="skills">
+            <span><i class="devicon-html5-plain"></i> HTML</span>
+            <span><i class="devicon-css3-plain"></i> CSS</span>
+            <span><i class="devicon-javascript-plain"></i> JavaScript</span>
+            <span><i class="devicon-git-plain"></i> Git</span>
+            <span><i class="devicon-github-original"></i> GitHub</span>
+            <span><i class="devicon-c-plain"></i> C</span>
+            <span><i class="devicon-python-plain"></i> Python</span>
+            <span><i class="devicon-cplusplus-plain"></i> C++</span>
+            <span>🎬 Video Editing</span>
+
+        </div>
+
+        <div class="buttons">
+            <a href="#projects" class="btn-primary">Core Projects</a>
+            <a href="#contact" class="btn-secondary">Get In Touch</a>
+        </div>
+    </div>
+
+    <div class="profile-wrapper">
+    <div class="profile-glow"></div>
+    <div class="profile-ring">
+        <img src="./shailendraimage.png" alt="Shailendra" class="profile-img">
+    </div>
 </div>
 
+
+</section>
+
+<section id="projects">
+    <h2>Core Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Developer Portfolio</h3>
+            <p>Responsive portfolio with smooth animations.</p>
+        </div>
+        <div class="project-card">
+            <h3>Video Slider System</h3>
+            <p>Custom hover-play slider with single-video logic.</p>
+        </div>
+        <div class="project-card">
+            <h3>UI Animation Engine</h3>
+            <p>Scroll-based reveal and performance-optimized UI.</p>
+        </div>
+    </div>
+</section>
+
+<section id="work">
+    <h2>Editing Projects</h2>
+
+    <div class="video-row">
+
+        <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="metadata">
+                    <source src="./project1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Cinematic reel Edit</h4>
+        </div>
+
+        <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="metadata">
+                    <source src="./project2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Intro Edit</h4>
+        </div>
+
+        <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="metadata">
+                    <source src="./project3.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Short Film Scene</h4>
+        </div>
+
+        <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="metadata">
+                    <source src="./project10.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Short Film Scene</h4>
+        </div>
+
+    </div>
+
+    <div class="watch-more">
+        <a href="https://drive.google.com/drive/folders/1KzB-Ne_WqdE_3s008PaUwff8CZRjs4--" target="_blank">
+            Watch More
+        </a>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-links">
+        <a href="https://wa.me/919140742377">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/shailendrasahu-">LinkedIn</a>
+        <a href="mailto:shailendrasahu393@gmail.com">Email</a>
+        <a href="https://www.instagram.com/shabhhh_">Instagram</a>
+        <a href="https://github.com/shailendrasahu393-cell">GitHub</a>
+
+    </div>
+</section>
+
 <script>
-const carousel = document.querySelector('.carousel');
+/* =========================
+   VIDEO LOGIC
+========================= */
+const videos = document.querySelectorAll(".video-card video");
 
-/* CREATE CARDS */
-videos.forEach(v => {
-  carousel.innerHTML += `
-  <div class="card">
-    <div class="video-wrap">
-      <video class="main" src="https://www.w3schools.com/html/${v[0]}" loop muted></video>
-      <video class="reflect" src="https://www.w3schools.com/html/${v[0]}" loop muted></video>
-    </div>
-
-    <div class="play-btn">▶</div>
-
-    <div class="track-info">
-      <h3>${v[1]}</h3>
-      <p>${v[2]}</p>
-    </div>
-  </div>`;
-});
-
-const cards = document.querySelectorAll('.card');
-let active = 3;
-
-/* UPDATE SLIDER */
-function updateSlider() {
-  const spacing = window.innerWidth <= 768 ? 300 : 380;
-  const depth = window.innerWidth <= 768 ? 200 : 280;
-  const scaleActive = window.innerWidth <= 768 ? 1.2 : 1.18;
-
-  cards.forEach((card, i) => {
-    const main = card.querySelector('.main');
-    const reflect = card.querySelector('.reflect');
-    const btn = card.querySelector('.play-btn');
-
-    const offset = i - active;
-    const abs = Math.abs(offset);
-
-    card.style.transform = `
-      translate(-50%, -50%)
-      translateX(${offset * spacing}px)
-      translateZ(${abs === 0 ? depth : -abs * 260}px)
-      rotateY(${offset * -28}deg)
-      scale(${abs === 0 ? scaleActive : 0.85})
-    `;
-
-    card.style.opacity = abs > 3 ? 0 : 1;
-
-    main.pause();
-    reflect.pause();
-    main.muted = true;
-    reflect.muted = true;
-    btn.textContent = "▶";
-  });
+function stopOthers(current) {
+    videos.forEach(v => {
+        if (v !== current) {
+            v.pause();
+            v.currentTime = 0;
+            v.muted = true;
+            v.closest(".video-card").classList.remove("active");
+        }
+    });
 }
 
-updateSlider();
+videos.forEach(video => {
+    const card = video.closest(".video-card");
 
-/* PLAY BUTTON */
-cards.forEach((card, i) => {
-  const main = card.querySelector('.main');
-  const reflect = card.querySelector('.reflect');
-  const btn = card.querySelector('.play-btn');
+    video.addEventListener("mouseenter", () => {
+        stopOthers(video);
+        video.muted = true;
+        video.play();
+        card.classList.add("active");
+    });
 
-  btn.addEventListener('click', e => {
-    e.stopPropagation();
-    if (i !== active) return;
+    video.addEventListener("mouseleave", () => {
+        video.pause();
+        video.currentTime = 0;
+        card.classList.remove("active");
+    });
 
-    if (main.paused) {
-      main.muted = false;
-      main.play();
-      reflect.play();
-      btn.textContent = "❚❚";
+    video.addEventListener("click", () => {
+        if (video.paused) {
+            stopOthers(video);
+            video.muted = false;
+            video.play();
+            card.classList.add("active");
+        } else {
+            video.pause();
+            card.classList.remove("active");
+        }
+    });
+});
+
+/* =========================
+   THEME TOGGLE LOGIC
+========================= */
+const toggleBtn = document.getElementById("themeToggle");
+const body = document.body;
+
+// Load saved theme
+if (localStorage.getItem("theme") === "light") {
+    body.classList.add("light");
+    toggleBtn.textContent = "☀️";
+}
+
+// Toggle theme
+toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("light");
+
+    if (body.classList.contains("light")) {
+        toggleBtn.textContent = "☀️";
+        localStorage.setItem("theme", "light");
     } else {
-      main.pause();
-      reflect.pause();
-      btn.textContent = "▶";
+        toggleBtn.textContent = "🌙";
+        localStorage.setItem("theme", "dark");
     }
-  });
-});
-
-/* SWIPE SMOOTH */
-let startX = 0;
-let isDragging = false;
-document.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; });
-document.addEventListener('touchend', e => {
-  if (!isDragging) return;
-  const diff = e.changedTouches[0].clientX - startX;
-  if (diff > 50) active = (active - 1 + cards.length) % cards.length;
-  if (diff < -50) active = (active + 1) % cards.length;
-  updateSlider();
-  isDragging = false;
-});
-document.addEventListener('mousedown', e => { startX = e.clientX; isDragging = true; });
-document.addEventListener('mouseup', e => {
-  if (!isDragging) return;
-  const diff = e.clientX - startX;
-  if (diff > 50) active = (active - 1 + cards.length) % cards.length;
-  if (diff < -50) active = (active + 1) % cards.length;
-  updateSlider();
-  isDragging = false;
 });
 </script>
 
