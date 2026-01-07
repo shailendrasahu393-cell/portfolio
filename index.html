@@ -7,7 +7,10 @@
 
 <!-- Devicon Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 <style>
 * {
     margin: 0;
@@ -596,22 +599,421 @@ img, video {
     height: auto;
     display: block;
 }
+  /* =========================
+   MOBILE: IMAGE ON TOP
+========================= */
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+    }
+
+    /* Move image to top */
+    .profile-wrapper {
+        order: -1;
+        margin-bottom: 6px;
+    }
+
+    /* Text below image */
+    .hero-text {
+        order: 1;
+        text-align: center;
+    }
+}
+/* =========================
+   MOBILE: ULTRA TIGHT IMAGE → TEXT
+========================= */
+@media (max-width: 900px) {
+
+    /* Pull text closer to image */
+    .profile-wrapper {
+        margin-bottom: 2px;   /* VERY tight */
+    }
+
+    /* Remove any default spacing */
+    .hero-text {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    /* Intro text closer */
+    .intro-text {
+        margin-bottom: 2px;
+    }
+
+    /* Headline hugs intro text */
+    .hero-text h1 {
+        margin-top: 0;
+        margin-bottom: 4px;
+    }
+
+    /* Sub role closer */
+    .sub-role {
+        margin-top: 2px;
+    }
+}
+  @media (max-width: 900px) {
+    .profile-wrapper {
+        transform: translateY(10px);
+    }
+}
+  /* =========================
+   MOBILE: MOVE HERO UP
+========================= */
+@media (max-width: 900px) {
+
+    /* Pull whole hero section upward */
+    .hero {
+        padding-top: 20px;      /* was ~40px */
+        margin-top: -40px;      /* 🔥 moves everything up */
+    }
+
+    /* Image closer to top */
+    .profile-wrapper {
+        margin-top: -20px;      /* lift image */
+        margin-bottom: 2px;
+    }
+
+    /* Text hugs image */
+    .intro-text {
+        margin-top: 0;
+        margin-bottom: 2px;
+    }
+
+    .hero-text h1 {
+        margin-top: 0;
+        margin-bottom: 4px;
+    }
+}
+  /* =========================
+   MOBILE ONLY: BUTTONS ABOVE SKILLS & SIDE BY SIDE
+========================= */
+@media (max-width: 900px) {
+
+    /* Make hero-text a flex column so order works */
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Move buttons above skills */
+    .buttons {
+        order: 2;                 /* ABOVE skills */
+        display: flex;
+        flex-direction: row;      /* SIDE BY SIDE */
+        gap: 10px;
+        margin: 12px 0;
+        justify-content: center;
+    }
+
+    .skills {
+        order: 3;                 /* BELOW buttons */
+        margin-top: 10px;
+    }
+
+    /* Small button size */
+    .buttons a {
+        padding: 8px 14px;
+        font-size: 12px;
+        border-radius: 999px;
+        min-width: 120px;
+        font-weight: 600;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    /* Hover effect (mobile safe) */
+    .buttons a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(168,85,247,0.45);
+    }
+}
+  /* =========================
+   SKILLS SECTION
+========================= */
+#skills {
+    text-align: center;
+}
+
+.skills-center {
+    justify-content: center;
+}
+
+/* Optional: tighter look on mobile */
+@media (max-width: 768px) {
+    #skills {
+        padding: 70px 18px;
+    }
+}
+  /* =========================
+   LOGO-ONLY CONTACT SECTION
+========================= */
+
+.contact-logos {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+/* Logo button */
+.logo-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    color: var(--text-main);
+    text-decoration: none;
+
+    background: radial-gradient(
+        circle at top,
+        rgba(168,85,247,0.25),
+        rgba(15,23,42,0.9)
+    );
+
+    border: 1px solid rgba(168,85,247,0.35);
+    box-shadow:
+        0 10px 30px rgba(168,85,247,0.25),
+        inset 0 0 0 1px rgba(168,85,247,0.25);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* Hover animation */
+.logo-btn:hover {
+    transform: translateY(-8px) scale(1.08);
+    box-shadow:
+        0 25px 60px rgba(168,85,247,0.55),
+        0 0 0 6px rgba(168,85,247,0.18);
+}
+
+/* Icon animation */
+.logo-btn i {
+    transition: transform 0.35s ease;
+}
+
+.logo-btn:hover i {
+    transform: rotate(12deg) scale(1.15);
+}
+
+/* Brand accents (subtle) */
+.whatsapp:hover { border-color: #22c55e; }
+.linkedin:hover { border-color: #0a66c2; }
+.instagram:hover { border-color: #e1306c; }
+.github:hover { border-color: #e5e7eb; }
+.email:hover { border-color: #a855f7; }
+
+/* Mobile polish */
+@media (max-width: 768px) {
+    .logo-btn {
+        width: 56px;
+        height: 56px;
+        font-size: 20px;
+    }
+}
+  .logo-btn i {
+    text-shadow: 0 0 12px rgba(168,85,247,0.6);
+}
+/* =========================
+   PC ONLY: TEXT SPACING FIX
+========================= */
+@media (min-width: 901px) {
+
+    .sub-role {
+        margin-bottom: 10px;
+    }
+
+    .hero-text p {
+        margin-bottom: 12px;
+        line-height: 1.8;
+    }
+
+    /* Extra spacing for the long aspiring line */
+    .hero-text p:last-of-type {
+        margin-top: 14px;
+    }
+}
+  /* =========================
+   MOBILE HAMBURGER MENU
+========================= */
+
+/* Hide menu button on PC */
+.menu-btn {
+    display: none;
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Show hamburger */
+    .menu-btn {
+        display: block;
+        font-size: 22px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* Hide links by default */
+    .nav-links {
+        position: absolute;
+        top: 58px;
+        right: 12px;
+        background: rgba(2, 6, 23, 0.95);
+        border: 1px solid rgba(168,85,247,0.35);
+        border-radius: 14px;
+        padding: 12px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        z-index: 999;
+    }
+
+    .nav-links a {
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .nav-links a:hover {
+        background: rgba(168,85,247,0.2);
+    }
+
+    /* Open state */
+    .nav-links.open {
+        display: flex;
+        animation: fadeSlide 0.25s ease;
+    }
+}
+
+/* Animation */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  /* =========================
+   MOBILE MENU — HARD FIX
+========================= */
+
+.site-header {
+    position: relative; /* 🔥 REQUIRED */
+    z-index: 1000;
+}
+
+/* Desktop */
+.menu-btn {
+    display: none;
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    /* Show hamburger */
+    .menu-btn {
+        display: block;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    /* Hidden menu */
+    .nav-links {
+        position: absolute;
+        top: 58px;
+        right: 12px;
+
+        background: rgba(2, 6, 23, 0.98);
+        border: 1px solid rgba(168,85,247,0.4);
+        border-radius: 14px;
+
+        padding: 12px;
+        min-width: 160px;
+
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+
+        z-index: 1002; /* 🔥 ABOVE EVERYTHING */
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: white;
+    }
+
+    .nav-links a:hover {
+        background: rgba(168,85,247,0.25);
+    }
+
+    /* OPEN STATE */
+    .nav-links.open {
+        display: flex;
+        animation: menuDrop 0.25s ease;
+    }
+}
+
+/* Animation */
+@keyframes menuDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 </style>
 </head>
 
 <body>
 
-<header>
-    <h2>Portfolio</h2>
+<header class="site-header">
+    <h2 class="logo">Portfolio</h2>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#work">Videos</a>
-        <a href="#contact">Contact</a>
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#work">Videos</a>
+            <a href="#contact">Contact</a>
+        </div>
 
-        <!-- THEME TOGGLE BUTTON -->
-        <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <button class="menu-btn" aria-label="Menu">
+            ☰
+        </button>
     </nav>
 </header>
 
@@ -628,32 +1030,11 @@ img, video {
 
     <div class="sub-role">Video Editor</div>
 
-        <p>Building smooth UI, interactive experiences, and cinematic visuals.</p>
-
-        <p class="about-me">
-    I’m a software developer who blends engineering precision with creative
-    problem-solving to build fast, modern digital experiences.
-    <br><br>
-    <strong>Cinematographer🎥 and Editor🎬- </strong>
-   I transmute raw frames into cinematic alchemy
-    ✨—capturing the vision through the lens 📸 and crafting the magic on the timeline 🎞️.
-</p>
-
-        <div class="skills">
-            <span><i class="devicon-html5-plain"></i> HTML</span>
-            <span><i class="devicon-css3-plain"></i> CSS</span>
-            <span><i class="devicon-javascript-plain"></i> JavaScript</span>
-            <span><i class="devicon-git-plain"></i> Git</span>
-            <span><i class="devicon-github-original"></i> GitHub</span>
-            <span><i class="devicon-c-plain"></i> C</span>
-            <span><i class="devicon-python-plain"></i> Python</span>
-            <span><i class="devicon-cplusplus-plain"></i> C++</span>
-            <span>🎬 Video Editing</span>
-
-        </div>
+        <p>Building smooth UI | interactive experiences | cinematic visuals</p>
+    <strong>Aspiring Software Developer 💻 | Full Stack 🌐 | Distributed Systems & Cloud Core ☁️</strong>
 
         <div class="buttons">
-            <a href="#projects" class="btn-primary">Core Projects</a>
+            <a href="#projects" class="btn-primary">My Work</a>
             <a href="#contact" class="btn-secondary">Get In Touch</a>
         </div>
     </div>
@@ -666,6 +1047,22 @@ img, video {
 </div>
 
 
+</section>
+  
+  <section id="skills">
+    <h2>Skills</h2>
+
+    <div class="skills skills-center">
+        <span><i class="devicon-html5-plain"></i> HTML</span>
+        <span><i class="devicon-css3-plain"></i> CSS</span>
+        <span><i class="devicon-javascript-plain"></i> JavaScript</span>
+        <span><i class="devicon-git-plain"></i> Git</span>
+        <span><i class="devicon-github-original"></i> GitHub</span>
+        <span><i class="devicon-c-plain"></i> C</span>
+        <span><i class="devicon-python-plain"></i> Python</span>
+        <span><i class="devicon-cplusplus-plain"></i> C++</span>
+        <span>🎬 Video Editing</span>
+    </div>
 </section>
 
 <section id="projects">
@@ -685,6 +1082,7 @@ img, video {
         </div>
     </div>
 </section>
+  
 
 <section id="work">
     <h2>Editing Projects</h2>
@@ -726,7 +1124,34 @@ img, video {
             </div>
             <h4>Short Film Scene</h4>
         </div>
-
+      
+      <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="metadata">
+                    <source src="./project4.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Raw clips</h4>
+        </div>
+      
+      <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="metadata">
+                    <source src="./project5.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Transition Video</h4>
+        </div>
+      
+      <div class="video-card">
+            <div class="video-frame">
+                <video muted loop playsinline preload="metadata">
+                    <source src="./project6.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h4>Capturing Emotions</h4>
+        </div>
+    
     </div>
 
     <div class="watch-more">
@@ -737,14 +1162,28 @@ img, video {
 </section>
 
 <section id="contact">
-    <h2>Get In Touch</h2>
-    <div class="contact-links">
-        <a href="https://wa.me/919140742377">WhatsApp</a>
-        <a href="https://www.linkedin.com/in/shailendrasahu-">LinkedIn</a>
-        <a href="mailto:shailendrasahu393@gmail.com">Email</a>
-        <a href="https://www.instagram.com/shabhhh_">Instagram</a>
-        <a href="https://github.com/shailendrasahu393-cell">GitHub</a>
+    <h2 class="contact-title">Get In Touch</h2>
 
+    <div class="contact-logos">
+        <a href="https://wa.me/919140742377" class="logo-btn whatsapp" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/shailendrasahu-" class="logo-btn linkedin" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="mailto:shailendrasahu393@gmail.com" class="logo-btn email" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <a href="https://www.instagram.com/shabhhh_" class="logo-btn instagram" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://github.com/shailendrasahu393-cell" class="logo-btn github" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+        </a>
     </div>
 </section>
 
@@ -818,7 +1257,42 @@ toggleBtn.addEventListener("click", () => {
         localStorage.setItem("theme", "dark");
     }
 });
-</script>
+  
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
 
+    if (!menuBtn || !navLinks) return;
+
+    menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+    });
+});
+</script>
+<script>
+/* =========================
+   MOBILE MENU TOGGLE
+========================= */
+(function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (!menuBtn || !navLinks) return;
+
+    menuBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        navLinks.classList.toggle("open");
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+    });
+
+    navLinks.addEventListener("click", function (e) {
+        e.stopPropagation();
+    });
+})();
+</script>
 </body>
 </html>
