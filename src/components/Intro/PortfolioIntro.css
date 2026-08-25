@@ -1,0 +1,421 @@
+/* ============================
+   PORTFOLIO INTRO — Cinematic Game Sequence
+   ============================ */
+
+/* ---------- Layer ---------- */
+.intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #050505;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.intro-overlay.intro--exiting {
+    pointer-events: none;
+}
+
+.intro-overlay.intro--hidden {
+    display: none;
+}
+
+/* ---------- Scanlines ---------- */
+.intro-scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.015) 2px,
+        rgba(255, 255, 255, 0.015) 4px
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ---------- Noise / Grain ---------- */
+.intro-noise {
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+    animation: intro-grain 0.5s steps(6) infinite;
+}
+
+@keyframes intro-grain {
+    0%, 100% { transform: translate(0, 0); }
+    20% { transform: translate(-5%, -5%); }
+    40% { transform: translate(3%, -7%); }
+    60% { transform: translate(-3%, 5%); }
+    80% { transform: translate(7%, 3%); }
+}
+
+/* ---------- Shared text styles ---------- */
+.intro-overlay * {
+    will-change: transform, opacity;
+}
+
+/* ---------- Phase Container ---------- */
+.intro-phase {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-phase--active {
+    pointer-events: auto;
+}
+
+/* ---------- Phase 1: Init Text ---------- */
+.intro-init-text {
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+}
+
+/* ---------- Phase 2: Logo ---------- */
+.intro-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.intro-logo__monogram {
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    text-shadow: 0 0 40px rgba(139, 92, 246, 0.4), 0 0 80px rgba(139, 92, 246, 0.15);
+    position: relative;
+}
+
+.intro-logo__monogram::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+    opacity: 0.6;
+}
+
+/* ---------- Phase 3: System Status ---------- */
+.intro-system {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.intro-system__line {
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 400;
+    opacity: 0;
+}
+
+.intro-loader {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.intro-loader__label {
+    font-size: 0.6rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+}
+
+.intro-loader__track {
+    width: clamp(200px, 40vw, 320px);
+    height: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.intro-loader__fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #8b5cf6, #60a5fa);
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+    transition: none;
+}
+
+.intro-loader__percent {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.3);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+}
+
+/* ---------- Glitch Flash ---------- */
+.intro-glitch-flash {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ---------- Phase 4: Name Reveal ---------- */
+.intro-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.intro-name__hello {
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 400;
+}
+
+.intro-name__main {
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -2px;
+    text-shadow: 0 0 60px rgba(139, 92, 246, 0.3);
+    overflow: hidden;
+}
+
+.intro-name__char {
+    display: inline-block;
+    opacity: 0;
+}
+
+/* ---------- Phase 5: Profession ---------- */
+.intro-profession {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.intro-profession__title {
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.intro-profession__sub {
+    font-size: clamp(0.6rem, 1vw, 0.7rem);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    font-weight: 400;
+}
+
+/* ---------- Phase 6: CTA ---------- */
+.intro-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.intro-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 48px;
+    background: transparent;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.intro-cta__btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.intro-cta__btn:hover,
+.intro-cta__btn:focus-visible {
+    border-color: rgba(139, 92, 246, 0.8);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.2), inset 0 0 30px rgba(139, 92, 246, 0.05);
+}
+
+.intro-cta__btn:hover::before,
+.intro-cta__btn:focus-visible::before {
+    opacity: 1;
+}
+
+.intro-cta__indicator {
+    display: inline-block;
+    color: #8b5cf6;
+    font-size: 1rem;
+    animation: intro-blink 1s step-end infinite;
+}
+
+@keyframes intro-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.intro-cta__skip {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 400;
+}
+
+/* ---------- Corner HUD Elements ---------- */
+.intro-hud {
+    position: absolute;
+    z-index: 5;
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.12);
+    font-weight: 400;
+    opacity: 0;
+}
+
+.intro-hud--tl {
+    top: 24px;
+    left: 24px;
+}
+
+.intro-hud--tr {
+    top: 24px;
+    right: 24px;
+    text-align: right;
+}
+
+.intro-hud--bl {
+    bottom: 24px;
+    left: 24px;
+}
+
+.intro-hud--br {
+    bottom: 24px;
+    right: 24px;
+    text-align: right;
+}
+
+/* ---------- Glitch Keyframe (reusable) ---------- */
+@keyframes intro-glitch-skew {
+    0% { transform: skew(0deg); }
+    20% { transform: skew(-2deg, 1deg); }
+    40% { transform: skew(1deg, -1deg); }
+    60% { transform: skew(-1deg, 0.5deg); }
+    80% { transform: skew(0.5deg, -0.5deg); }
+    100% { transform: skew(0deg); }
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .intro-overlay *,
+    .intro-overlay *::before,
+    .intro-overlay *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .intro-noise,
+    .intro-scanlines {
+        display: none;
+    }
+}
+
+/* ---------- Mobile Adjustments ---------- */
+@media (max-width: 768px) {
+    .intro-hud {
+        font-size: 0.4rem;
+    }
+
+    .intro-hud--tl,
+    .intro-hud--tr {
+        top: 16px;
+    }
+
+    .intro-hud--bl,
+    .intro-hud--br {
+        bottom: 16px;
+    }
+
+    .intro-hud--tl,
+    .intro-hud--bl {
+        left: 16px;
+    }
+
+    .intro-hud--tr,
+    .intro-hud--br {
+        right: 16px;
+    }
+
+    .intro-cta__btn {
+        padding: 14px 36px;
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+    }
+
+    .intro-name__main {
+        letter-spacing: -1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-cta__btn {
+        padding: 12px 28px;
+        font-size: 0.65rem;
+    }
+}

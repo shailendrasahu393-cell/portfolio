@@ -1,0 +1,201 @@
+/* ============================
+   TERMINAL CONTACT FORM
+   ============================ */
+
+.terminal-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(13, 17, 23, 0.85);
+    /* Matches lightened dark theme */
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(139, 92, 246, 0.1);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    text-align: left;
+    font-family: var(--font-code, 'Courier New', monospace);
+}
+
+.terminal-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.terminal-dot.red {
+    background: #ff5f56;
+}
+
+.terminal-dot.yellow {
+    background: #ffbd2e;
+}
+
+.terminal-dot.green {
+    background: #27c93f;
+}
+
+.terminal-title {
+    margin-left: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+
+.terminal-form {
+    padding: 24px;
+}
+
+.terminal-prompt {
+    color: var(--accent-primary);
+    font-size: 14px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.cursor-block {
+    width: 8px;
+    height: 15px;
+    background: var(--accent-primary);
+    display: inline-block;
+    margin-right: 8px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.optional-tag {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 9px;
+    margin-left: 6px;
+}
+
+.terminal-input {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px;
+    outline: none;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.terminal-input:focus {
+    border-color: var(--accent-primary);
+    background: rgba(139, 92, 246, 0.05);
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
+}
+
+.terminal-input.input-error {
+    border-color: #ff5f56;
+    background: rgba(255, 95, 86, 0.05);
+}
+
+.error-text {
+    color: #ff5f56;
+    font-size: 10px;
+    margin-top: 6px;
+}
+
+.form-actions {
+    margin-top: 30px;
+}
+
+.terminal-submit {
+    background: transparent;
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    border-radius: 4px;
+}
+
+.terminal-submit:hover:not(:disabled) {
+    background: var(--accent-primary);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+.terminal-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.status-message {
+    margin-top: 15px;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.success-message {
+    background: rgba(39, 201, 63, 0.1);
+    color: #27c93f;
+    border: 1px solid rgba(39, 201, 63, 0.3);
+}
+
+.error-message {
+    background: rgba(255, 95, 86, 0.1);
+    color: #ff5f56;
+    border: 1px solid #ff5f56;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 480px) {
+    .terminal-form-container {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .terminal-form {
+        padding: 16px;
+    }
+}

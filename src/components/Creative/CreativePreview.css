@@ -1,0 +1,110 @@
+/* ============================
+   CREATIVE PREVIEW — Clean Grid
+   ============================ */
+.creative-preview__categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-12);
+}
+
+.creative-preview__cat {
+    text-align: center;
+    padding: var(--space-6);
+    background: var(--bg-card);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-md);
+    color: var(--accent-primary);
+    transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.creative-preview__cat:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+}
+
+.creative-preview__cat h4 {
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    margin: var(--space-3) 0 var(--space-2);
+    font-weight: var(--font-semibold);
+}
+
+.creative-preview__cat p {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Preview Grid */
+.creative-preview__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-10);
+}
+
+.creative-preview__card {
+    text-decoration: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.creative-preview__card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-3px);
+}
+
+.creative-preview__video-wrap {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.creative-preview__video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.creative-preview__card-info {
+    padding: var(--space-4) var(--space-5);
+}
+
+.creative-preview__card-cat {
+    font-family: var(--font-code);
+    font-size: 0.55rem;
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-primary);
+    opacity: 0.8;
+}
+
+.creative-preview__card-info h4 {
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    margin-top: var(--space-2);
+    font-weight: var(--font-semibold);
+}
+
+/* CTA */
+.creative-preview__cta {
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .creative-preview__categories {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .creative-preview__grid {
+        grid-template-columns: 1fr;
+    }
+}

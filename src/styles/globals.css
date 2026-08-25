@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import './variables.css';
+
+/* ============================
+   RESET & BASE
+   ============================ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color var(--transition-theme), color var(--transition-theme);
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* ============================
+   TYPOGRAPHY
+   ============================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+}
+
+p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ============================
+   LAYOUT UTILITIES
+   ============================ */
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.section {
+    padding: var(--space-24) 0;
+}
+
+.section-alt {
+    background-color: var(--bg-secondary);
+}
+
+/* ============================
+   SECTION HEADING — Engineering Style
+   ============================ */
+.section-heading {
+    text-align: center;
+    margin-bottom: var(--space-16);
+    position: relative;
+}
+
+.section-heading__label {
+    display: inline-block;
+    font-family: var(--font-code);
+    font-size: 0.7rem;
+    font-weight: var(--font-medium);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-4);
+    opacity: 0.8;
+}
+
+.section-heading__title {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.5px;
+}
+
+.section-heading__title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--accent-primary);
+    margin: var(--space-4) auto 0;
+    opacity: 0.5;
+}
+
+.section-heading__subtitle {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ============================
+   BUTTONS
+   ============================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 14px 32px;
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--accent-gradient);
+    color: white;
+    box-shadow: 0 4px 16px var(--glow-accent);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--glow-strong);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-secondary);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--accent-primary);
+    padding: 14px 24px;
+}
+
+.btn-ghost:hover {
+    background: var(--glow-accent);
+}
+
+.btn-sm {
+    padding: 10px 20px;
+    font-size: var(--text-sm);
+}
+
+/* ============================
+   FOCUS STATES (Accessibility)
+   ============================ */
+:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/* ============================
+   SCROLLBAR
+   ============================ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-secondary);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+}
+
+/* ============================
+   RESPONSIVE CONTAINER
+   ============================ */
+@media (max-width: 1024px) {
+    :root {
+        --container-padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --container-padding: 24px;
+    }
+
+    .section {
+        padding: var(--space-16) 0;
+    }
+
+    .section-heading__title {
+        font-size: var(--text-3xl);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 18px;
+    }
+}
+
+/* ============================
+   SELECTION
+   ============================ */
+::selection {
+    background: var(--accent-primary);
+    color: white;
+}
+
+/* ============================
+   SCROLL REVEAL ANIMATIONS
+   ============================ */
+.sr-container {
+    opacity: 0;
+    transform: translateY(var(--sr-distance, 40px));
+    transition: opacity var(--sr-duration, 0.8s) cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform var(--sr-duration, 0.8s) cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition-delay: var(--sr-delay, 0s);
+    will-change: opacity, transform;
+}
+
+.sr-container.sr-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

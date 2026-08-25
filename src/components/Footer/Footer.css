@@ -1,0 +1,106 @@
+/* ============================
+   FOOTER — Minimal Technical
+   ============================ */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-secondary);
+    padding: var(--space-10) 0 var(--space-8);
+}
+
+.footer__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+    margin-bottom: var(--space-8);
+}
+
+.footer__logo {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+}
+
+.footer__logo-dot {
+    color: var(--accent-primary);
+}
+
+.footer__role {
+    font-family: var(--font-code);
+    font-size: 0.6rem;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer__nav {
+    display: flex;
+    gap: var(--space-5);
+}
+
+.footer__nav-link {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    letter-spacing: 0.3px;
+}
+
+.footer__nav-link:hover {
+    color: var(--text-primary);
+}
+
+.footer__socials {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.footer__social-link {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    border: 1px solid var(--border-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.footer__social-link:hover {
+    color: var(--accent-primary);
+    border-color: var(--border-accent);
+}
+
+.footer__bottom {
+    text-align: center;
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--border-secondary);
+}
+
+.footer__bottom p {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer__content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer__nav {
+        justify-content: center;
+    }
+
+    .footer__socials {
+        justify-content: center;
+    }
+}

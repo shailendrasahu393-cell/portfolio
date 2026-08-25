@@ -1,0 +1,110 @@
+/* ============================
+   ABOUT — Engineering Profile
+   ============================ */
+.about__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+}
+
+.about__paragraph {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--space-6);
+}
+
+.about__paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.about__highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+}
+
+.about__highlight-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    background: var(--bg-card);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-base), transform var(--transition-base);
+    position: relative;
+}
+
+.about__highlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--accent-primary);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    border-radius: 2px 0 0 2px;
+}
+
+.about__highlight-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+}
+
+.about__highlight-card:hover::before {
+    opacity: 1;
+}
+
+.about__highlight-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    border: 1px solid var(--border-secondary);
+    color: var(--accent-primary);
+    flex-shrink: 0;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.about__highlight-card:hover .about__highlight-icon {
+    background: var(--glow-accent);
+    border-color: var(--border-accent);
+}
+
+.about__highlight-label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.about__highlight-desc {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about__content {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+    }
+
+    .about__text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .about__highlights {
+        grid-template-columns: 1fr;
+    }
+}
