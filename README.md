@@ -1,16 +1,27 @@
-# React + Vite
+# Minimalist Digital Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A high-performance, dark-themed digital portfolio built with React & Vite. Features cinematic scroll animations, 3D interactive elements, and heavily optimized video delivery.
 
-Currently, two official plugins are available:
+## 🚀 Deployment instructions for Render
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Deploying this portfolio on Render is completely **FREE** and takes only 2 minutes.
 
-## React Compiler
+### Steps to Deploy:
+1. Form a free account at [Render.com](https://render.com/).
+2. On your Render dashboard, click **"New"** and select **"Static Site"**.
+3. Connect your GitHub account and select this repository (`shailendrasahu393-cell/portfolio`).
+4. Fill out the configuration fields exactly as follows:
+   - **Name:** *Whatever you want (e.g. shailendra-portfolio)*
+   - **Branch:** `main`
+   - **Build Command:** `npm install && npm run build`
+   - **Publish Directory:** `dist`
+5. Click **Create Static Site**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Render will now download your code, build it using Vite, and give you a live shareable URL (like `https://shailendra-portfolio.onrender.com`). Every time you future `git push` to GitHub, Render will automatically update your live website!
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Local Development
+To run this project locally for making edits:
+```bash
+npm install
+npm run dev
+```
