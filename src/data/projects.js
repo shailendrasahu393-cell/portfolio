@@ -23,17 +23,17 @@ export const projects = [
     {
         id: 'tct-lab-portal',
         title: 'TCT LAB Portal',
-        shortDescription: 'Comprehensive laboratory portal system.',
+        shortDescription: 'Technical Computer Training Resource Directory.',
         description:
-            'A functional web application portal designed for the TCT Lab space, engineered to handle interactions and effectively structure technical access points.',
-        problem: 'Required a centralized system to coordinate and cleanly present technical workflows and information for the lab.',
+            'A centralized privacy-first resource directory that gives students one clear place to find shared lab links, coding exercises, contests, and practice resources from their faculty.',
+        problem: 'Students struggled to find the right resource among scattered chat messages, and standard systems required heavy logins.',
         solution:
-            'Built a dedicated web portal with a clean front-end structure hosted and automatically deployed through a Render pipeline for immediate access.',
-        technologies: ['HTML', 'CSS', 'JavaScript'],
+            'Engineered a fast, accessible web portal focused entirely on serving approved lab links efficiently, without needing WhatsApp login or chat accesses.',
+        technologies: ['React', 'Vite', 'Lucide', 'Axios'],
         features: [
-            'Organized Data Presentation',
-            'Clean User Interface',
-            'Optimized Deploy Pipeline'
+            'Centralized Resource Organization',
+            'Privacy-First Model (No Logins required)',
+            'Instant UI Search & Filters',
         ],
         github: 'https://github.com/shailendrasahu393-cell/tct',
         liveDemo: 'https://tct-404.onrender.com/',
