@@ -1,4 +1,4 @@
-import { FiArrowDown, FiSend, FiDownload } from 'react-icons/fi';
+import { FiArrowDown, FiSend, FiDownload, FiGithub } from 'react-icons/fi';
 import { profile } from '../../data/profile';
 import ProfileCard from './ProfileCard';
 import DigitalSurfaceBg from './DigitalSurfaceBg';
@@ -59,6 +59,15 @@ export default function Hero() {
                                 >
                                     <FiDownload size={16} />
                                     Download Resume
+                                </a>
+                                <a
+                                    href="https://github.com/shailendrasahu393-cell/portfolio"
+                                    className="btn btn-secondary"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FiGithub size={16} />
+                                    Source Code
                                 </a>
                                 <button className="btn btn-ghost" onClick={scrollToContact}>
                                     <FiSend size={16} />
