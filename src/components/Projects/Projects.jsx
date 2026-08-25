@@ -121,7 +121,7 @@ function FeaturedProject({ project }) {
 }
 
 export default function Projects() {
-    const featured = projects.find((p) => p.featured);
+    const featuredProjects = projects.filter((p) => p.featured);
     const others = projects.filter((p) => !p.featured);
 
     return (
@@ -137,13 +137,19 @@ export default function Projects() {
                     </div>
                 </ScrollReveal>
 
-                {featured && <FeaturedProject project={featured} />}
-
-                <div className="projects-grid">
-                    {others.map((project, idx) => (
-                        <ProjectCard key={project.id} project={project} index={idx} />
+                <div className="featured-projects-container" style={{ display: 'flex', flexDirection: 'column', gap: '3rem', marginBottom: others.length > 0 ? '4rem' : '0' }}>
+                    {featuredProjects.map((project) => (
+                        <FeaturedProject key={project.id} project={project} />
                     ))}
                 </div>
+
+                {others.length > 0 && (
+                    <div className="projects-grid">
+                        {others.map((project, idx) => (
+                            <ProjectCard key={project.id} project={project} index={idx} />
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     );
