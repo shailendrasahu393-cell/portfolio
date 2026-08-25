@@ -10,7 +10,7 @@ export const profile = {
     'I build clean interfaces, interactive web experiences, and cinematic visuals. My work spans full-stack development, UI engineering, and creative technology — combining code with visual storytelling.',
   aspirations:
     'Aspiring Software Engineer | Full Stack | Distributed Systems & Cloud',
-  profileImage: '/assets/shailendraimage.png',
+  profileImage: '/assets/shailendraimage.jpg',
   resumeUrl: '/assets/resume.pdf',
 
   about: {
