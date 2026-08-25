@@ -69,9 +69,17 @@ function FeaturedProject({ project }) {
         <ScrollReveal delay={0.2}>
             <div className="featured-project">
                 <div className="featured-project__visual">
-                    <div className="featured-project__placeholder">
-                        <span>Featured Project</span>
-                    </div>
+                    {project.image ? (
+                        <img
+                            src={project.image}
+                            alt={`${project.title} Interface`}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }}
+                        />
+                    ) : (
+                        <div className="featured-project__placeholder">
+                            <span>Featured Project</span>
+                        </div>
+                    )}
                 </div>
                 <div className="featured-project__info">
                     <span className="featured-project__label">Featured Project</span>

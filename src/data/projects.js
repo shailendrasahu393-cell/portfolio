@@ -37,7 +37,7 @@ export const projects = [
         ],
         github: 'https://github.com/shailendrasahu393-cell/tct',
         liveDemo: 'https://tct-404.onrender.com/',
-        image: null,
+        image: '/assets/tct-lab-portal.png',
         featured: true,
     },
 ];
