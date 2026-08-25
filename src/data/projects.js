@@ -16,8 +16,8 @@ export const projects = [
             'Fully Responsive Architecture',
         ],
         github: 'https://github.com/shailendrasahu393-cell/portfolio',
-        liveDemo: 'https://portfolio-uck1.onrender.com/',
-        image: null,
+        liveDemo: 'https://shailendrasahu.onrender.com/',
+        image: '/assets/developer-portfolio-screenshot.png',
         featured: true,
     },
     {
@@ -37,7 +37,7 @@ export const projects = [
         ],
         github: 'https://github.com/shailendrasahu393-cell/tct',
         liveDemo: 'https://tct-404.onrender.com/',
-        image: '/assets/tct-lab-portal.png',
+        image: '/assets/tct-lab-portal-screenshot.png',
         featured: true,
     },
 ];
