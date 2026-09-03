@@ -183,7 +183,7 @@ Fully responsive across all breakpoints:
 
 This portfolio is deployed on **[Render](https://render.com)** with automatic deploys from the `main` branch.
 
-**Live URL**: [portfolio-shailendra.onrender.com](https://portfolio-shailendra.onrender.com)
+**Live URL**: [shailendrasahu.onrender.com](https://shailendrasahu.onrender.com)
 
 ### Deploy Your Own
 
