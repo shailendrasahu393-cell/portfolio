@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://portfolio-shailendra.onrender.com"><img src="https://img.shields.io/badge/🌐_Live_Demo-0b0b0b?style=for-the-badge&logo=render&logoColor=F97316" alt="Live Demo"/></a>
+  <a href="https://shailendrasahu.onrender.com"><img src="https://img.shields.io/badge/🌐_Live_Demo-0b0b0b?style=for-the-badge&logo=render&logoColor=F97316" alt="Live Demo"/></a>
   <a href="https://github.com/shailendrasahu393-cell/portfolio"><img src="https://img.shields.io/badge/Source_Code-0b0b0b?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
 </p>
 
