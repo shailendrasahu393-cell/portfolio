@@ -1,17 +1,64 @@
+/* =============================================
+   HERO — Orange/Dark Theme (Reference Redesign)
+   ============================================= */
+
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: 72px;
     position: relative;
-    /* important for background */
+    overflow: hidden;
+    background: #0b0b0b;
+}
+
+/* Ambient dark-orange radial glow on bg */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 55% at 70% 50%, rgba(255, 120, 20, 0.10) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 50% at 15% 60%, rgba(255, 100, 0, 0.07) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Subtle dot grid */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 120, 0, 0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Faded silhouette background image */
+.hero__bg-silhouette {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    height: 100%;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    /* Fade all edges */
+    -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 45%, black 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 80% at 50% 45%, black 30%, transparent 100%);
+    opacity: 0.28;
+    filter: none;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .hero__container {
     width: 100%;
     position: relative;
     z-index: 1;
-    /* keep above the background */
 }
 
 .hero__content {
@@ -21,104 +68,157 @@
     gap: var(--space-8);
 }
 
-/* Text */
+/* ── Text Side ─────────────────────────────── */
 .hero__text {
     flex: 1;
-    max-width: 600px;
+    max-width: 580px;
 }
 
+/* Status pill */
 .hero__tech-label {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-family: var(--font-code, 'Courier New', monospace);
     font-size: 0.65rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 2px;
-    color: var(--accent-primary);
-    opacity: 0.7;
-    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    color: #f97316;
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.25);
+    border-radius: 999px;
+    padding: 4px 12px;
+    margin-bottom: var(--space-5);
 }
 
+.hero__tech-label::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #f97316;
+    box-shadow: 0 0 6px #f97316;
+    animation: hero-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hero-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 6px #f97316;
+    }
+
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 12px #f97316;
+    }
+}
+
+/* Greeting */
 .hero__greeting {
     display: block;
     font-size: var(--text-sm);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.45);
     margin-bottom: var(--space-3);
     font-weight: 500;
 }
 
+/* Big Name — first word white, second word orange */
 .hero__title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: var(--space-4);
-    letter-spacing: -1px;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    margin-bottom: var(--space-5);
+    letter-spacing: -2px;
 }
 
 .hero__title-accent {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--accent-primary) 0%, #38bdf8 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-right: 0.3em;
-    position: relative;
-}
-
-/* Subtle underline for the accent to emphasize "engineering" */
-.hero__title-accent::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: var(--accent-primary);
-    opacity: 0.4;
+    display: block;
+    font-size: 0.7em;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    letter-spacing: -1px;
 }
 
 .hero__title-main {
-    display: inline-block;
-    color: var(--text-primary);
+    display: block;
+    background: linear-gradient(90deg, #f97316, #fb923c, #fbbf24, #f97316);
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: title-color-flow 3s linear infinite;
+    filter: drop-shadow(0 0 28px rgba(249, 115, 22, 0.45));
+    line-height: 1.15;
+    padding-bottom: 0.12em;
 }
 
+@keyframes title-color-flow {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 250% center;
+    }
+}
+
+/* Role / subtitle */
 .hero__subtitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: var(--text-xl);
-    color: var(--text-secondary);
-    font-weight: 400;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
     margin-bottom: var(--space-5);
-    opacity: 0.9;
+}
+
+.hero__subtitle::before {
+    content: '▶';
+    font-size: 0.6em;
+    color: #f97316;
 }
 
 .hero__tagline {
-    font-size: var(--text-lg);
-    color: var(--text-tertiary);
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.4);
     line-height: 1.7;
     margin-bottom: var(--space-3);
 }
 
 .hero__description {
     font-size: var(--text-sm);
-    color: var(--text-tertiary);
-    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.75;
     margin-bottom: var(--space-10);
-    letter-spacing: 0.5px;
+    max-width: 480px;
 }
 
-/* Actions */
+/* ── CTA Buttons ──────────────────────────── */
 .hero__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-5);
+    gap: var(--space-4);
     align-items: center;
 }
 
-/* Enhancing buttons inside hero only for subtle tech feel */
+/* Primary — orange pill */
 .hero__actions .btn-primary {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-weight: 700;
+    padding: 12px 28px;
+    box-shadow: 0 0 24px rgba(249, 115, 22, 0.3);
     position: relative;
     overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.2s;
 }
 
 .hero__actions .btn-primary::before {
@@ -126,40 +226,53 @@
     position: absolute;
     top: 0;
     left: -100%;
-    width: 50%;
+    width: 60%;
     height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.18), transparent);
     transform: skewX(-20deg);
-    transition: left 0.5s ease;
+    transition: left 0.55s ease;
 }
 
 .hero__actions .btn-primary:hover::before {
-    left: 150%;
+    left: 160%;
 }
 
+.hero__actions .btn-primary:hover {
+    box-shadow: 0 0 36px rgba(249, 115, 22, 0.55);
+    transform: translateY(-2px);
+}
+
+/* Secondary — dark glass border pill */
 .hero__actions .btn-secondary {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-secondary);
-    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 12px 24px;
+    font-weight: 500;
     transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 .hero__actions .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(249, 115, 22, 0.4);
+    color: #fff;
     transform: translateY(-2px);
 }
 
+/* Ghost */
 .hero__actions .btn-ghost {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.45);
+    background: transparent;
+    border: none;
+    padding: 12px 16px;
     transition: color 0.2s ease;
 }
 
 .hero__actions .btn-ghost:hover {
-    color: var(--text-primary);
+    color: #f97316;
     background: transparent;
-    text-decoration: underline;
-    text-underline-offset: 4px;
 }
 
 .hero__actions .btn-ghost svg {
@@ -168,14 +281,12 @@
 
 .hero__actions .btn-ghost:hover svg {
     transform: translateX(3px) translateY(-3px);
-    /* small angled slide */
 }
 
-/* Image */
+/* ── Right Image Area ─────────────────────── */
 .hero__image {
     position: relative;
-    width: 440px;
-    /* Increased slightly for immersive 3d card */
+    width: 420px;
     height: 540px;
     display: flex;
     align-items: center;
@@ -184,7 +295,20 @@
     z-index: 2;
 }
 
-/* Remove old glow/ring styles, ProfileCard will handle it entirely now */
+/* hint label below card */
+.hero__image::after {
+    content: '3D ID CARD — DRAG TO STRETCH';
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-code, monospace);
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    color: rgba(249, 115, 22, 0.45);
+    white-space: nowrap;
+}
+
 .hero__image-glow,
 .hero__image-ring,
 .hero__image-photo {
@@ -194,17 +318,23 @@
 /* ============================
    RESPONSIVE
    ============================ */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
     .hero__content {
         flex-direction: column;
         text-align: center;
+        padding-top: var(--space-8);
     }
 
     .hero__image {
         order: -1;
         width: 100%;
-        max-width: 380px;
-        height: 480px;
+        max-width: 360px;
+        height: 440px;
+    }
+
+    .hero__title-accent,
+    .hero__title-main {
+        display: block;
     }
 
     .hero__text {
@@ -214,6 +344,14 @@
         align-items: center;
     }
 
+    .hero__subtitle {
+        justify-content: center;
+    }
+
+    .hero__description {
+        text-align: center;
+    }
+
     .hero__actions {
         justify-content: center;
     }
@@ -221,8 +359,7 @@
 
 @media (max-width: 480px) {
     .hero {
-        min-height: auto;
-        padding-top: 100px;
+        padding-top: 90px;
         padding-bottom: var(--space-16);
     }
 

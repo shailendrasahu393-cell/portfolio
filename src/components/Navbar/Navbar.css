@@ -42,7 +42,7 @@
 }
 
 .navbar__logo-dot {
-    color: var(--accent-primary);
+    color: #f97316;
     font-size: var(--text-2xl);
 }
 
@@ -75,7 +75,7 @@
 .navbar__link:hover,
 .navbar__link--active {
     color: var(--text-primary);
-    background: var(--glow-accent);
+    background: rgba(249, 115, 22, 0.12);
 }
 
 /* Actions */
@@ -91,19 +91,19 @@
     align-items: center;
     gap: 6px;
     padding: 8px 18px;
-    background: var(--accent-gradient);
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
     color: white;
     font-size: var(--text-sm);
     font-weight: var(--font-semibold);
     border-radius: var(--radius-full);
     text-decoration: none;
     transition: all var(--transition-base);
-    box-shadow: 0 2px 10px var(--glow-accent);
+    box-shadow: 0 2px 12px rgba(249, 115, 22, 0.3);
 }
 
 .navbar__resume-btn:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 20px var(--glow-strong);
+    box-shadow: 0 4px 22px rgba(249, 115, 22, 0.5);
 }
 
 .navbar__theme-btn {

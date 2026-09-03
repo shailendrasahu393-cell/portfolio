@@ -15,8 +15,8 @@ const CONFIG = {
     GRID_OPACITY: 0.03,
     NODE_OPACITY: 0.15,
     LINE_OPACITY: 0.05,
-    ACCENT_COLOR: '139, 92, 246', // #8b5cf6 (Purple)
-    CYAN_COLOR: '56, 189, 248'    // #38bdf8 (Subtle Cyan accent)
+    ACCENT_COLOR: '249, 115, 22', // #f97316 (Orange)
+    CYAN_COLOR: '251, 146, 60'    // #fb923c (Lighter Orange accent)
 };
 
 export default function DigitalSurfaceBg() {

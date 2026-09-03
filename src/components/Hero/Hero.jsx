@@ -19,6 +19,12 @@ export default function Hero() {
     return (
         <section className="hero" aria-label="Introduction">
             <DigitalSurfaceBg />
+            {/* Faded background silhouette */}
+            <div
+                className="hero__bg-silhouette"
+                style={{ backgroundImage: `url(/assets/hero-silhouette.jpg)` }}
+                aria-hidden="true"
+            />
             <div className="hero__container container">
                 <div className="hero__content">
                     <div className="hero__text">
@@ -79,20 +85,19 @@ export default function Hero() {
 
                     <ScrollReveal delay={0.5} className="hero__image">
                         <ProfileCard
-                            name="Shailendra"
-                            title=""
-                            handle="javicodes"
+                            name="Shailendra Sahu"
+                            title="Software Engineer"
+                            handle="shailendra"
                             status="Online"
                             contactText="Contact Me"
                             avatarUrl={profile.profileImage}
-                            showUserInfo={false}
+                            showUserInfo={true}
                             enableTilt={true}
                             enableMobileTilt={false}
-                            onContactClick={() => console.log('Contact clicked')}
-                            behindGlowColor="rgba(125, 190, 255, 0.67)"
-                            iconUrl="/assets/demo/iconpattern.png"
+                            onContactClick={scrollToContact}
+                            behindGlowColor="rgba(249, 115, 22, 0.5)"
                             behindGlowEnabled
-                            innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+                            innerGradient="linear-gradient(145deg, rgba(20,10,3,0.7) 0%, rgba(249,115,22,0.15) 100%)"
                         />
                     </ScrollReveal>
                 </div>

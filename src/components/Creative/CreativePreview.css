@@ -6,9 +6,14 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-4);
     margin-bottom: var(--space-12);
+    align-items: stretch;
 }
 
 .creative-preview__cat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: var(--space-6);
     background: var(--bg-card);

@@ -23,7 +23,7 @@ export const socialLinks = [
     {
         id: 'instagram',
         label: 'Instagram',
-        url: 'https://www.instagram.com/shabhhh_',
+        url: 'https://www.instagram.com/3o.03.06',
         icon: 'FaInstagram',
         hoverColor: '#e1306c',
     },
