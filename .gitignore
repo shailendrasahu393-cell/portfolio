@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local project docs (PDF/HTML — do not push to GitHub)
+PROJECT_DETAILS.pdf
+PROJECT_DETAILS.html
