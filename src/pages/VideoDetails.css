@@ -178,3 +178,25 @@
         gap: var(--space-6);
     }
 }
+
+@media (max-width: 480px) {
+    .video-details {
+        padding-top: 80px;
+    }
+
+    .video-details__title {
+        font-size: var(--text-2xl);
+    }
+
+    .video-details__desc {
+        font-size: var(--text-sm);
+    }
+
+    .video-details__related h2 {
+        font-size: var(--text-xl);
+    }
+
+    .video-details__related-grid {
+        grid-template-columns: 1fr;
+    }
+}

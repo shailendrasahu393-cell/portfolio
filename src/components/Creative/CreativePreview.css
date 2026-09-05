@@ -113,3 +113,13 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 480px) {
+    .creative-preview__cat {
+        padding: var(--space-4);
+    }
+
+    .creative-preview__video-wrap {
+        height: 170px;
+    }
+}

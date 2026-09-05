@@ -46,6 +46,13 @@ button {
     cursor: pointer;
     font-family: inherit;
     color: inherit;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 ul,
@@ -252,7 +259,30 @@ a:focus-visible {
 
 @media (max-width: 480px) {
     :root {
-        --container-padding: 18px;
+        --container-padding: 16px;
+    }
+
+    .section {
+        padding: var(--space-12) 0;
+    }
+
+    .section-heading__title {
+        font-size: var(--text-2xl);
+    }
+
+    .section-heading__subtitle {
+        font-size: var(--text-sm);
+    }
+
+    /* Ensure tap targets are at least 44px */
+    .btn {
+        min-height: 44px;
+        padding: 12px 24px;
+    }
+
+    .btn-sm {
+        min-height: 38px;
+        padding: 8px 16px;
     }
 }
 

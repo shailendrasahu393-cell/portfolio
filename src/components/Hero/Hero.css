@@ -359,8 +359,26 @@
 
 @media (max-width: 480px) {
     .hero {
-        padding-top: 90px;
-        padding-bottom: var(--space-16);
+        padding-top: 80px;
+        padding-bottom: var(--space-12);
+    }
+
+    .hero__image {
+        max-width: 280px;
+        height: 360px;
+    }
+
+    .hero__title {
+        letter-spacing: -1px;
+    }
+
+    .hero__subtitle {
+        font-size: var(--text-lg);
+    }
+
+    .hero__description {
+        font-size: var(--text-xs);
+        max-width: 100%;
     }
 
     .hero__actions {
@@ -371,7 +389,23 @@
 
     .hero__actions .btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
         justify-content: center;
+        min-height: 48px;
+    }
+
+    .hero__image::after {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero__image {
+        max-width: 240px;
+        height: 310px;
+    }
+
+    .hero__tech-label {
+        font-size: 0.55rem;
     }
 }

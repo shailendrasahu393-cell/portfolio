@@ -98,3 +98,14 @@
         padding: var(--space-5);
     }
 }
+
+@media (max-width: 480px) {
+    .skills-category {
+        padding: var(--space-4);
+    }
+
+    .skill-badge {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
+}

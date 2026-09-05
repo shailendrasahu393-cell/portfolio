@@ -403,3 +403,34 @@
         height: 340px;
     }
 }
+
+@media (max-width: 480px) {
+    .pc-card-wrapper {
+        width: 220px;
+        height: 300px;
+    }
+
+    .pc-hud--top {
+        height: 44px;
+    }
+
+    .pc-footer {
+        height: 46px;
+    }
+
+    .pc-footer__name {
+        font-size: 0.65rem;
+    }
+
+    .pc-drag-hint {
+        font-size: 0.5rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 360px) {
+    .pc-card-wrapper {
+        width: 195px;
+        height: 265px;
+    }
+}

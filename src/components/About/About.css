@@ -95,16 +95,38 @@
 @media (max-width: 900px) {
     .about__content {
         grid-template-columns: 1fr;
-        gap: var(--space-10);
+        gap: var(--space-8);
     }
 
     .about__text {
         text-align: center;
+    }
+
+    .about__paragraph {
+        text-align: left;
     }
 }
 
 @media (max-width: 600px) {
     .about__highlights {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .about__content {
+        gap: var(--space-6);
+    }
+
+    .about__paragraph {
+        font-size: var(--text-sm);
+    }
+
+    .about__highlight-card {
+        padding: var(--space-4);
+    }
+
+    .about__highlight-label {
+        font-size: var(--text-xs);
     }
 }

@@ -104,3 +104,22 @@
         justify-content: center;
     }
 }
+
+@media (max-width: 480px) {
+    .footer {
+        padding: var(--space-8) 0 var(--space-6);
+    }
+
+    .footer__nav {
+        flex-wrap: wrap;
+        gap: var(--space-3);
+    }
+
+    .footer__nav-link {
+        font-size: var(--text-xs);
+    }
+
+    .footer__bottom p {
+        font-size: 0.65rem;
+    }
+}

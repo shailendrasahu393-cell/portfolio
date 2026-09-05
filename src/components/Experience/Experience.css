@@ -158,3 +158,31 @@
         justify-content: flex-start;
     }
 }
+
+@media (max-width: 480px) {
+    .timeline::before {
+        left: 12px;
+    }
+
+    .timeline__item,
+    .timeline__item--left,
+    .timeline__item--right {
+        padding-left: 36px;
+        padding-right: 0;
+        padding-top: var(--space-3);
+        padding-bottom: var(--space-3);
+    }
+
+    .timeline__item--left .timeline__dot,
+    .timeline__item--right .timeline__dot {
+        left: 7px;
+    }
+
+    .timeline__card {
+        padding: var(--space-4);
+    }
+
+    .timeline__title {
+        font-size: var(--text-sm);
+    }
+}
